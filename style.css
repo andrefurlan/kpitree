@@ -1,0 +1,55 @@
+.KPITree {
+
+}
+.NodeHeader {
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+}
+.NodeHeader-name {
+	width: 80%;
+}
+.NodeHeader-button {
+	width: 20%;
+}
+.NodeHeader-button > button {
+	width: 100%;
+}
+.NodeBody-label {
+    width: 40%;
+
+}
+.NodeBody-value {
+    text-align: center;
+
+    width: 60%;
+}
+.NodeBody-value-dev {
+    width: 40%;
+
+    text-align: center;
+}
+.NodeBody-flag {
+    width: 20%;
+
+    background-color: green;
+}
+.NodeBody-row {
+    display: flex;
+	
+}
+
+.NodeBody {
+	border-width: 1px;
+    border-style: solid;
+    height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.TreeNode {
+    width: 200px;
+
+    position: absolute;
+}

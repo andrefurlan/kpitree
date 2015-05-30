@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>React</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/JSXTransformer.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="container"> </div>
+
+		<script type="text/jsx">
+			/** @jsx React.DOM */
+			var KPITree = React.createClass({
+				getDefaultProps: function() {
+					return {
+					}
+				},
+
+				render: function() {
+					return (
+						<div className="KPITree">
+							<TreeNode top={65} left={10}/>
+							<TreeNode top={10} left={300}/>
+							<TreeNode top={110} left={300}/>
+						</div>
+					);
+				}
+			});
+
+			var TreeNode = React.createClass({
+				getDefaultProps: function() {
+					return {
+						top: 50,
+						left: 10
+					}
+				},
+				render: function() {
+					var nodeStyle = {top: this.props.top, left: this.props.left};
+					return (
+						<div className="TreeNode" style={nodeStyle}>
+							<TreeNodeHeader />
+							<TreeNodeBody />
+						</div>
+					);
+				}
+			});
+
+			var TreeNodeHeader = React.createClass({
+				render: function() {
+					return (
+						<div className="NodeHeader">
+							<div className="NodeHeader-name">
+								<span> header </span>
+							</div>
+							<div className="NodeHeader-button">
+								<button>
+									>
+								</button>
+							</div>
+						</div>
+					);
+				}
+			});
+
+			var TreeNodeBody = React.createClass({
+				render: function() {
+					return (
+						<div className="NodeBody">
+							<div className="NodeBody-row">
+								<div className="NodeBody-label"> TARGET </div>
+								<div className= "NodeBody-value"> 0.0 </div>
+							</div>
+							<div className="NodeBody-row">
+								<div className= "NodeBody-label"> ACTUAL </div>
+								<div className= "NodeBody-value"> 0.0 </div>
+							</div>
+							<div className="NodeBody-row">
+								<div className= "NodeBody-label"> DEV %</div>
+								<div className= "NodeBody-value-dev"> - </div>
+								<div className= "NodeBody-flag">  </div>
+							</div>
+						</div>
+					)
+				}
+			});
+
+			React.renderComponent(
+				<KPITree />,
+				document.getElementById('container')
+			);
+		</script>
+	</body>
+</html>

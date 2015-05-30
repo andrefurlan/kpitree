@@ -56,9 +56,7 @@
 								<span> header </span>
 							</div>
 							<div className="NodeHeader-button">
-								<button>
-									>
-								</button>
+								<TreeNodeDeployBtn />
 							</div>
 						</div>
 					);
@@ -83,6 +81,31 @@
 								<div className= "NodeBody-flag">  </div>
 							</div>
 						</div>
+					)
+				}
+			});
+
+			var TreeNodeDeployBtn = React.createClass({
+				getInitialState: function() {
+					return {deployed: false};
+				},
+				getDefaultProps: function() {
+					return {
+						deploy: function(flag) {
+							var text = flag ? "deployed" : "not deployed";
+							window.alert("oh oh " + text);
+						}
+					}
+				},
+				handleClick: function() {
+					this.props.deploy(this.deployed);
+					this.setState({deployed: !this.state.deployed});
+				},
+				render: function() {
+					return (
+						<p onClick={this.handleClick}>
+							>
+						</p>
 					)
 				}
 			});

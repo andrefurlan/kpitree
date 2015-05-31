@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/JSXTransformer.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.7.3/immutable.js"></script>
+		<script src="initialState.js"></script>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
@@ -65,6 +67,7 @@
 
 			var TreeNodeBody = React.createClass({
 				render: function() {
+					var delta = "\u0394%";
 					return (
 						<div className="NodeBody">
 							<div className="NodeBody-row">
@@ -76,7 +79,7 @@
 								<div className= "NodeBody-value"> 0.0 </div>
 							</div>
 							<div className="NodeBody-row">
-								<div className= "NodeBody-label"> DEV %</div>
+								<div className= "NodeBody-label"> {delta}</div>
 								<div className= "NodeBody-value-dev"> - </div>
 								<div className= "NodeBody-flag">  </div>
 							</div>
@@ -103,9 +106,9 @@
 				},
 				render: function() {
 					return (
-						<p onClick={this.handleClick}>
+						<button onClick={this.handleClick}>
 							>
-						</p>
+						</button>
 					)
 				}
 			});

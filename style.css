@@ -12,15 +12,13 @@
 .NodeHeader-button {
 	width: 20%;
 }
-.NodeHeader-button > p {
+.NodeHeader-button > button {
 	width: 100%;
 	margin: 0px;
 	text-align: center;
-	background-color: lightgrey;
 }
 .NodeBody-label {
     width: 40%;
-
 }
 .NodeBody-value {
     text-align: center;

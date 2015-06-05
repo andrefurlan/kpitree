@@ -1,38 +1,21 @@
 import React from "react";
 
-// (function(React, global) {
-//
-//     if (!global.app) {
-//         global.app = {};
-//         global.app.functions = {};
-//         global.app.components = {};
-//         global.app.state = {};
-//     }
-
 let KPITree = React.createClass({
-    getDefaultProps: function() {
-        return {
-        };
-    },
 
     render: function() {
+        var tree = this.props.app.get("tree");
         return (
             <div className="KPITree">
-                <TreeNode left={10} top={165}/>
-                <TreeNode left={300} top={110}/>
-                <TreeNode left={300} top={210}/>
+                {tree.map(function(node) {
+                    return <TreeNode key={node.kpiId} left={node.position.x} top={node.position.y}/>;
+                })}
             </div>
         );
     }
 });
 
 let TreeNode = React.createClass({
-    getDefaultProps: function() {
-        return {
-            top: 50,
-            left: 10
-        };
-    },
+    
     render: function() {
         var nodeStyle = {left: this.props.left, top: this.props.top};
         return (

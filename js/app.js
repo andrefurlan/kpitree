@@ -1,14 +1,18 @@
-import * as appState from "./state";
+import State from "./state";
+import initialState from "./initialStateWithFakeData";
 import React from "react";
 import Router from "react-router";
 import {Link, Route, RouteHandler} from "react-router";
-
-
 import KPITreeHandler from "./components/kpitree.js";
 
+
 let App = React.createClass({
+    update: function(newState) {
+        this.setState(newState);
+    },
     getInitialState: function() {
-        return {app: appState.getInitialStateWithFakeData()};
+        const initialAppState = new State(initialState(), this.update);
+        return {appState: initialAppState};
     },
 
     render() {

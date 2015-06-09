@@ -26,6 +26,7 @@
     "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
+    "eventemitter3": "^1.1.0",
     "immutable": "^3.7.3"
   }
 }

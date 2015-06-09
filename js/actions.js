@@ -1,11 +1,9 @@
-export function sum(x, y) {
-    return x + y;
-}
+import immutable from "immutable";
 
-export var pi = 3.141593;
-
-export function deployNode() {
-    return [{
+export function deployNode(appState) {
+    var state = appState.get();
+    var newTree = immutable.fromJS([
+        {
             kpiId: 1,
             kpiName: "sales/person",
             targetValue: "$10.000,00",
@@ -29,5 +27,6 @@ export function deployNode() {
             delta: "200%",
             flag: "red",
             position: {x: 300, y: 110}
-        }];
+        }]);
+    appState.set(state.set("tree", newTree), "tree");
 }

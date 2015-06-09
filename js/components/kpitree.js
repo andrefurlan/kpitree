@@ -1,13 +1,18 @@
 import React from "react";
-
+import {deployNode} from "../actions";
 let KPITree = React.createClass({
 
     render: function() {
-        var tree = this.props.app.get("tree");
+        var appState = this.props.appState;
+        var treeState = appState.get().get("tree");
         return (
             <div className="KPITree">
-                {tree.map(function(node) {
-                    return <TreeNode key={node.kpiId} left={node.position.x} top={node.position.y}/>;
+                {treeState.map(function(node) {
+                    return <TreeNode
+                        appState={appState}
+                        key={node.get("kpiId")}
+                        left={node.getIn(["position", "x"])}
+                        top={node.getIn(["position", "y"])}/>;
                 })}
             </div>
         );
@@ -15,12 +20,12 @@ let KPITree = React.createClass({
 });
 
 let TreeNode = React.createClass({
-    
+
     render: function() {
         var nodeStyle = {left: this.props.left, top: this.props.top};
         return (
             <div className="TreeNode" style={nodeStyle}>
-                <TreeNodeHeader />
+                <TreeNodeHeader appState={this.props.appState}/>
                 <TreeNodeBody />
             </div>
         );
@@ -35,7 +40,7 @@ let TreeNodeHeader = React.createClass({
                     <span> header </span>
                 </div>
                 <div className="NodeHeader-button">
-                    <TreeNodeDeployBtn />
+                    <TreeNodeDeployBtn appState={this.props.appState}/>
                 </div>
             </div>
         );
@@ -66,20 +71,8 @@ let TreeNodeBody = React.createClass({
 });
 
 let TreeNodeDeployBtn = React.createClass({
-    getInitialState: function() {
-        return {deployed: false};
-    },
-    getDefaultProps: function() {
-        return {
-            deploy: function(flag) {
-                var text = flag ? "deployed" : "not deployed";
-                console.log("oh oh " + text);
-            }
-        };
-    },
     handleClick: function() {
-        this.props.deploy(this.deployed);
-        this.setState({deployed: !this.state.deployed});
+        deployNode(this.props.appState);
     },
     render: function() {
         var symbol = ">";

@@ -11,6 +11,7 @@ let KPITree = React.createClass({
                     return <TreeNode
                         appState={appState}
                         key={node.get("kpiId")}
+                        kpiId={node.get("kpiId")}
                         left={node.getIn(["position", "x"])}
                         top={node.getIn(["position", "y"])}/>;
                 })}
@@ -25,7 +26,7 @@ let TreeNode = React.createClass({
         var nodeStyle = {left: this.props.left, top: this.props.top};
         return (
             <div className="TreeNode" style={nodeStyle}>
-                <TreeNodeHeader appState={this.props.appState}/>
+                <TreeNodeHeader appState={this.props.appState} kpiId={this.props.kpiId}/>
                 <TreeNodeBody />
             </div>
         );
@@ -40,7 +41,7 @@ let TreeNodeHeader = React.createClass({
                     <span> header </span>
                 </div>
                 <div className="NodeHeader-button">
-                    <TreeNodeDeployBtn appState={this.props.appState}/>
+                    <TreeNodeDeployBtn appState={this.props.appState} kpiId={this.props.kpiId}/>
                 </div>
             </div>
         );
@@ -72,7 +73,7 @@ let TreeNodeBody = React.createClass({
 
 let TreeNodeDeployBtn = React.createClass({
     handleClick: function() {
-        deployNode(this.props.appState);
+        deployNode(this.props.appState, this.props.kpiId);
     },
     render: function() {
         var symbol = ">";
@@ -85,10 +86,3 @@ let TreeNodeDeployBtn = React.createClass({
 });
 
 export default KPITree;
-    // global.app.components.KPITree = KPITree;
-    // global.app.components.TreeNode = TreeNode;
-    // global.app.components.TreeNodeBody = TreeNodeBody;
-    // global.app.components.TreeNodeHeader = TreeNodeHeader;
-    // global.app.components.TreeNodeDeployBtn = TreeNodeDeployBtn;
-
-// })(window.React, window);

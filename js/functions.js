@@ -1,11 +1,14 @@
+import immutable from "immutable";
+
 export function sum(x, y) {
     return x + y;
 }
 
 export var pi = 3.141593;
 
-export function deployNode() {
-    return [{
+export function getDeployedNodeState(appState, kpiId) {
+    return immutable.fromJS([
+        {
             kpiId: 1,
             kpiName: "sales/person",
             targetValue: "$10.000,00",
@@ -29,5 +32,5 @@ export function deployNode() {
             delta: "200%",
             flag: "red",
             position: {x: 300, y: 110}
-        }];
+        }]);
 }

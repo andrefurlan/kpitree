@@ -7,7 +7,7 @@ export default function() {
             targetValue: "$10.000,00",
             actualValue: "$10.000,00",
             delta: "100%",
-            flag: "green",
+            colour: "green",
             position: {x: 10, y: 65}
         }],
         datePicker: {

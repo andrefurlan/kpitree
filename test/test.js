@@ -1,8 +1,16 @@
 "use strict";
 
 var assert = require("assert");
+var immutable = require("immutable");
 // var testFunctions = require("../js/functions");
-import {sum, pi} from "../js/functions";
+
+
+
+
+
+// example tests
+
+import {sum, pi} from "../js/TestFunctions";
 describe("testFunctions", function(){
     describe("sum", function(){
         it("should return 4", function(){

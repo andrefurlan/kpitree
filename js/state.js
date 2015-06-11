@@ -21,6 +21,10 @@ export default class State {
         return this._state;
     }
 
+    getIn(path) {
+        return this._state.getIn(path);
+    }
+
     save(): Object {
         return this._state.toJS();
     }

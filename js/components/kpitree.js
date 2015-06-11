@@ -1,88 +1,43 @@
 import React from "react";
-import {deployNode} from "../actions";
-let KPITree = React.createClass({
+import * as treeUtils from "../treeUtils";
+import TreeNode from "./TreeNode";
+
+let KpiTree = React.createClass({
 
     render: function() {
-        var appState = this.props.appState;
-        var treeState = appState.get().get("tree");
+        const appState = this.props.appState;
+        const treeState = appState.getIn(["tree"]);
+        const data = appState.getIn(["data"]);
+        const period = appState.getIn(["dataPicker", "period"]);
+        // TODO: define the action here and pass is down via props or
+        //       pass down the appState and let the component import
+        //       the action????
         return (
             <div className="KPITree">
-                {treeState.map(function(node) {
+                {treeState.map((node) => {
+                    const kpiId = node.get("kpiId");
+                    const kpiName =  treeUtils.getKpiName(kpiId, data);
+                    const left = treeUtils.getPositionLeft(kpiId, data);
+                    const right = treeUtils.getPositionRight(kpiId, data);
+                    const targetValue = treeUtils.getTargetValue(kpiId, period, data);
+                    const actualValue = treeUtils.getActualValue(kpiId, period, data);
+                    const delta = treeUtils.getDelta(kpiId, period, data);
+                    const colour = treeUtils.getColour(kpiId, period, data);
+
                     return <TreeNode
                         appState={appState}
-                        key={node.get("kpiId")}
-                        kpiId={node.get("kpiId")}
-                        left={node.getIn(["position", "x"])}
-                        top={node.getIn(["position", "y"])}/>;
+                        key={kpiId}
+                        kpiId={kpiId}
+                        kpiName={kpiName}
+                        targetValue={targetValue}
+                        actualValue={actualValue}
+                        deltaValue={delta}
+                        left={left}
+                        top={top}/>;
                 })}
             </div>
         );
     }
 });
 
-let TreeNode = React.createClass({
-
-    render: function() {
-        var nodeStyle = {left: this.props.left, top: this.props.top};
-        return (
-            <div className="TreeNode" style={nodeStyle}>
-                <TreeNodeHeader appState={this.props.appState} kpiId={this.props.kpiId}/>
-                <TreeNodeBody />
-            </div>
-        );
-    }
-});
-
-let TreeNodeHeader = React.createClass({
-    render: function() {
-        return (
-            <div className="NodeHeader">
-                <div className="NodeHeader-name">
-                    <span> header </span>
-                </div>
-                <div className="NodeHeader-button">
-                    <TreeNodeDeployBtn appState={this.props.appState} kpiId={this.props.kpiId}/>
-                </div>
-            </div>
-        );
-    }
-});
-
-let TreeNodeBody = React.createClass({
-    render: function() {
-        var delta = "\u0394%";
-        return (
-            <div className="NodeBody">
-                <div className="NodeBody-row">
-                    <div className="NodeBody-label"> TARGET </div>
-                    <div className= "NodeBody-value"> 0.0 </div>
-                </div>
-                <div className="NodeBody-row">
-                    <div className= "NodeBody-label"> ACTUAL </div>
-                    <div className= "NodeBody-value"> 0.0 </div>
-                </div>
-                <div className="NodeBody-row">
-                    <div className= "NodeBody-label"> {delta}</div>
-                    <div className= "NodeBody-value-dev"> - </div>
-                    <div className= "NodeBody-flag"> </div>
-                </div>
-            </div>
-        );
-    }
-});
-
-let TreeNodeDeployBtn = React.createClass({
-    handleClick: function() {
-        deployNode(this.props.appState, this.props.kpiId);
-    },
-    render: function() {
-        var symbol = ">";
-        return (
-            <button onClick={this.handleClick}>
-                {symbol}
-            </button>
-        );
-    }
-});
-
-export default KPITree;
+export default KpiTree;

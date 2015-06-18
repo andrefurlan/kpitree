@@ -31,7 +31,7 @@ export default function() {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
-                    children: ["4", "5"],
+                    children: ["4", "5", "6", "7"],
                     dataset: {
                         200505: {
                                 actual: 100.000,
@@ -46,7 +46,7 @@ export default function() {
                     kpiId: "3",
                     name: "person",
                     unit: "",
-                    children: [],
+                    children: ["7"],
                     dataset: {
                         200505: {
                             actual: 20,
@@ -61,7 +61,7 @@ export default function() {
                     kpiId: "4",
                     name: "kpi4",
                     unit: "CND",
-                    children: ["4", "5"],
+                    children: [],
                     dataset: {
                         200505: {
                             actual: 100.004,
@@ -75,6 +75,36 @@ export default function() {
                 }, {
                     kpiId: "5",
                     name: "kpi5",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        200505: {
+                            actual: 25,
+                            target: 15
+                        },
+                        200506: {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "6",
+                    name: "kpi6",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        200505: {
+                            actual: 25,
+                            target: 15
+                        },
+                        200506: {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "7",
+                    name: "kpi7",
                     unit: "",
                     children: [],
                     dataset: {

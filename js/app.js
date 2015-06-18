@@ -3,7 +3,7 @@ import initialState from "./initialStateWithFakeData";
 import React from "react";
 import Router from "react-router";
 import {Link, Route, RouteHandler} from "react-router";
-import KPITreeHandler from "./components/KpiTree.js";
+import KPITreeHandler from "./components/Tree/Tree.react.js";
 
 
 let App = React.createClass({

@@ -1,5 +1,5 @@
 import React from "react";
-import TreeNodeDeployBtn from "./TreeNodeDeployBtn";
+import TreeNodeDrillBtn from "./TreeNodeDrillBtn.react";
 
 let TreeNodeHeader = React.createClass({
     render: function() {
@@ -9,10 +9,9 @@ let TreeNodeHeader = React.createClass({
                     <span> {this.props.kpiName} </span>
                 </div>
                 <div className="NodeHeader-button">
-                    <TreeNodeDeployBtn
-                        appState={this.props.appState}
+                    <TreeNodeDrillBtn
                         kpiId={this.props.kpiId}
-                        deployFn={this.props.deployFn}/>
+                        actions={this.props.actions}/>
                 </div>
             </div>
         );

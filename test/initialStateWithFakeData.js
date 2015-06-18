@@ -2,7 +2,10 @@ import immutable from "immutable";
 
 export default function() {
     return {
-        tree: [],
+        tree: [{
+            kpiId: "1",
+            position: {x: 20, y: 200}
+        }],
         datePicker: {
             period: 200505
         },
@@ -16,7 +19,7 @@ export default function() {
                     name: "sales/person",
                     unit: "CND",
                     magnitude: "",
-                    children: ["2", "3"],
+                    children: ["2", "3", "4"],
                     dataset: {
                         200505: {
                             actual: 10.000,
@@ -31,7 +34,7 @@ export default function() {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
-                    children: ["4", "5"],
+                    children: ["5"],
                     dataset: {
                         200505: {
                                 actual: 100.000,
@@ -61,7 +64,7 @@ export default function() {
                     kpiId: "4",
                     name: "kpi4",
                     unit: "CND",
-                    children: ["4", "5"],
+                    children: ["3", "5"],
                     dataset: {
                         200505: {
                             actual: 100.004,

@@ -1,9 +1,9 @@
 import React from "react";
-import {deployNode} from "../actions";
 
-let TreeNodeDeployBtn = React.createClass({
+
+let TreeNodeDrillBtn = React.createClass({
     handleClick: function() {
-        deployNode(this.props.appState, this.props.kpiId);
+        this.props.actions.drillNode(this.props.kpiId);
     },
     render: function() {
         var symbol = ">";
@@ -15,4 +15,4 @@ let TreeNodeDeployBtn = React.createClass({
     }
 });
 
-export default TreeNodeDeployBtn;
+export default TreeNodeDrillBtn;

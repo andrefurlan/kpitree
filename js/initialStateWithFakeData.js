@@ -31,7 +31,7 @@ export default function() {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
-                    children: ["4", "5", "6", "7"],
+                    children: ["4", "5", "6"],
                     dataset: {
                         200505: {
                                 actual: 100.000,

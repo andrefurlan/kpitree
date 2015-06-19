@@ -43,100 +43,28 @@ export function getNodePositions(appState) {
 
 }
 
+export function getNewTreeState(kpiId, treeState, appState) {
+    let newTreeState = List();
+    // base case, nothing in state, just push root id
+    if (!treeState.size) {
+        return newTreeState.push(kpiId);
+    }
+    // drill has happened before
+    treeState.forEach((parentId, treeStateindex, treeState) => {
+        if (parentId === kpiId) {
+            return false;
+        } else {
+            newTreeState = newTreeState.push(parentId);
+            const children = dataUtils.getKPIChildren(parentId, appState);
+            if (children.includes(kpiId) && !treeState.includes(kpiId)) {
+                newTreeState = newTreeState.push(kpiId);
+                return false;
+            }
+        }
+    });
+    return newTreeState;
+}
 
-
-    // if (treeState.size === 1) {
-    //     return List([
-    //         Map({
-    //             "kpiId": "1",
-    //             "position": getInitialPosition()
-    //         }),
-    //         Map({
-    //             "kpiId": "2",
-    //             "position": Map({"x": 280, "y": 140})
-    //         }),
-    //         Map({
-    //             "kpiId": "3",
-    //             "position": Map({"x": 280, "y": 240})
-    //         })
-    //     ]);
-    // } else if (treeState.size === 2) {
-    //     return List([
-    //         Map({
-    //             "kpiId": "1",
-    //             "position": getInitialPosition()
-    //         }),
-    //         Map({
-    //             "kpiId": "2",
-    //             "position": Map({"x": 280, "y": 140})
-    //         }),
-    //         Map({
-    //             "kpiId": "3",
-    //             "position": Map({"x": 280, "y": 240})
-    //         }),
-    //         Map({
-    //             "kpiId": "4",
-    //             "position": Map({"x": 540, "y": 180})
-    //         }),
-    //         Map({
-    //             "kpiId": "5",
-    //             "position": Map({"x": 540, "y": 280})
-    //         })
-    //     ]);
-    // } else {
-    //     return List([Map({
-    //         "kpiId": "1",
-    //         "position": getInitialPosition()
-    //     })]);    
-    // }
 export function getInitialPosition(appState) {
     return Map({x:20, y:200});
 }
-
-// export function getNewTreeStateOnDrill(kpiId, appState) {
-
-//     // get initial position from parent node in tree state
-//     const treeState = appState.getIn(["tree"]);
-//     const nodeState = treeState.filter((node) => {return node.get("kpiId") == kpiId;}).get(0);
-//     const initialPosition = nodeState.get("position");
-//     // get data from kpi
-//     const kpiData = dataUtils.getKPIData("kpiId");
-//     const children = kpiData.get("children");
-//     // const isDrilled = children.isSubset(treeState.map((node) => {return node.get("kpiId");}));
-//     // if (isDrilled) {
-
-//     // }
-
-//     return fromJS([
-//     {
-//         "kpiId": "1",
-//         "parentId": "",
-//         "position": {"x": 20, "y": 200}
-//     }, {
-//         "kpiId": "2",
-//         "parentId": "1",
-//         "position": {"x": 300, "y": 10}
-//     }, {
-//         "kpiId": "3",
-//         "parentId": "2",
-//         "position": {"x": 300, "y": 110}
-//     }]);
-//     // return fromJS([{
-//     //         "kpiId": "1",
-//     //         "position": {"x": 20, "y": 200}
-//     //     }]);
-
-//     // helper functions
-//     function calculatePositionLeft(kpiId, state) {
-//         // stub
-        
-//         return 10 * kpiId;
-//     }
-
-//     function calculatePositionRight(kpiId, state) {
-//         //stub
-//         return 65 * kpiId;
-//     }
-// }
-
-

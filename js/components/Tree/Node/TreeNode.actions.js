@@ -1,3 +1,4 @@
+import {getNewTreeState} from "../Tree.utils";
 
 export default class NodeActions {
 

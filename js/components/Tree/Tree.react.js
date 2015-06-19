@@ -1,6 +1,6 @@
 import React from "react";
-import * as treeUtils from "./Tree.utils";
-import * as dataUtils from "../../dataUtils";
+import { getNodePositions } from "./Tree.utils";
+import { getKPIData } from "../../dataUtils";
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
 
@@ -9,16 +9,16 @@ let KpiTree = React.createClass({
     render: function() {
         const appState = this.props.appState;
         // the tree state is just a array of deployed kpis
-        const positions = treeUtils.getNodePositions(appState);
+        const positions = getNodePositions(appState);
         const nodeActions = new NodeActions(appState);
 
         return (
-            <div className="KPITree">
+            <section className="KPITree">
                 {positions.map((node) => {
                     const kpiId = node.get("kpiId");
                     const left = node.getIn(["position", "x"]);
                     const top = node.getIn(["position", "y"]);
-                    const kpiData = dataUtils.getKPIData(kpiId, appState);
+                    const kpiData = getKPIData(kpiId, appState, true);
 
                     return <TreeNode
                         actions = {nodeActions}
@@ -29,7 +29,7 @@ let KpiTree = React.createClass({
                         left = {left}
                         top = {top}/>;
                 })}
-            </div>
+            </section>
         );
     }
 });

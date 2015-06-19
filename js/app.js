@@ -17,9 +17,11 @@ let App = React.createClass({
 
     render() {
         return (
-            <div className="nav">
-                <Link to="app">Home</Link>
-                <Link to="kpitree">KPI Tree</Link>
+            <div className="app">
+                <nav>
+                    <Link to="app">Home</Link>
+                    <Link to="kpitree">KPI Tree</Link>
+                </nav>
                 <RouteHandler {...this.state}/>
             </div>
         );

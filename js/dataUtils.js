@@ -6,12 +6,21 @@
  *  app state.
  */
 
-export function getKPIData(kpiId, appState) {
+/*
+ *  
+ */
+
+export function getKPIData(kpiId, appState, hasValues) {
     const state = appState.get();
-    return state.getIn(["data", "kpis"]).filter(
-        (kpi) => {
-            return kpi.get("kpiId") === kpiId;
-        }).get(0);
+    const kpi = state.getIn(["data", "kpis"]).filter((kpi) => {
+        return kpi.get("kpiId") === kpiId;
+    }).get(0);
+    if (hasValues) {
+        const data = kpi.set("values", kpi.getIn(["dataset", state.getIn(["periodPicker", "period"])]));
+        return data.delete("dataset");
+    } else {
+        return kpi;
+    }
 }
 
 export function getRootKPI(appState) {

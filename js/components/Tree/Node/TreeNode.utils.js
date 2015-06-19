@@ -1,27 +1,30 @@
-import {Map, List, fromJS} from "immutable";
+
 
 export function getKpiName(data) {
-    // stub
-    // return "sales/person";
     return data.get("name");
 }
 
 export function getTargetValue(data) {
-    //stub
-    return "$10.000,00";
+    //TODO: add currency and number formatting
+    return data.getIn(["values", "target"]);
 }
 
 export function getActualValue(data) {
-    //stub
-    return "$20.000,00";
+    //TODO: add currency and number formatting
+    return data.getIn(["values", "actual"]);;
 }
 
 export function getDelta(data) {
     //stub
-    return "100%";
+    // TODO: this function should take in consideration the kpi direction,
+    // zero values, ect.
+    let delta = getActualValue(data) / getTargetValue(data) * 100;
+    delta = +delta.toFixed(2);
+    return delta+"%";
 }
 
 export function getColour(data) {
     //stub
+    // TODO
     return "rbg(0, 102, 0)";
 }

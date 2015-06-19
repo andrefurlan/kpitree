@@ -13,22 +13,24 @@ let KpiTree = React.createClass({
         const nodeActions = new NodeActions(appState);
 
         return (
-            <section className="KPITree">
-                {positions.map((node) => {
-                    const kpiId = node.get("kpiId");
-                    const left = node.getIn(["position", "x"]);
-                    const top = node.getIn(["position", "y"]);
-                    const kpiData = getKPIData(kpiId, appState, true);
+            <section className="KPITreeContainer">
+                <div className="KPITree">
+                    {positions.map((node) => {
+                        const kpiId = node.get("kpiId");
+                        const left = node.getIn(["position", "x"]);
+                        const top = node.getIn(["position", "y"]);
+                        const kpiData = getKPIData(kpiId, appState, true);
 
-                    return <TreeNode
-                        actions = {nodeActions}
-                        appState = {appState}
-                        data = {kpiData}
-                        key = {kpiId}
-                        kpiId = {kpiId}
-                        left = {left}
-                        top = {top}/>;
-                })}
+                        return <TreeNode
+                            actions = {nodeActions}
+                            appState = {appState}
+                            data = {kpiData}
+                            key = {kpiId}
+                            kpiId = {kpiId}
+                            left = {left}
+                            top = {top}/>;
+                    })}
+                </div>
             </section>
         );
     }

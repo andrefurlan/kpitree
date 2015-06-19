@@ -20,8 +20,14 @@ section {
     position: relative;
     display: flex;
 }
-.KPITree {
+.KPITreeContainer {
     height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+}
+.KPITree {
+    height: 1000px;
     width: 100%;
     position: relative;
     overflow: auto;

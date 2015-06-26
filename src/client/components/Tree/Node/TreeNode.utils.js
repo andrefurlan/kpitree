@@ -17,7 +17,7 @@ export function getActualValue(data) {
 export function getDelta(data) {
     //stub
     // TODO: this function should take in consideration the kpi direction,
-    // zero values, ect.
+    // zero values, ect...
     let delta = getActualValue(data) / getTargetValue(data) * 100;
     delta = +delta.toFixed(2);
     return delta+"%";

@@ -39,7 +39,7 @@ export function getNodePositions(appState) {
         const x = parentPosition.get("x") + NODEWIDTH + NODEHSPACING;
         const height = ((numSiblings * NODEHEIGHT) + ((numSiblings - 1) * NODEVSPACING));
         const top = ((parentPosition.get("y") + NODEHEIGHT / 2) - (height / 2));
-        const y = top + (index * (NODEHEIGHT + NODEVSPACING));
+        const y = top + (index * (NODEHEIGHT + NODEVSPACING))+10;
         return Map({
             "kpiId": kpiId,
             "position": Map({"x": x, "y": y})

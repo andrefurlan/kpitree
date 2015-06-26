@@ -16,7 +16,7 @@ export default function() {
                     name: "sales/person",
                     unit: "CND",
                     magnitude: "",
-                    children: ["2", "3", "4", "5", "6", "7"],
+                    children: ["2", "3"],
                     dataset: {
                         "200505": {
                             actual: 10.000,
@@ -31,7 +31,7 @@ export default function() {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
-                    children: [],
+                    children: ["4", "5", "6", "7"],
                     dataset: {
                         "200505": {
                                 actual: 100.000,
@@ -46,7 +46,7 @@ export default function() {
                     kpiId: "3",
                     name: "person",
                     unit: "",
-                    children: [],
+                    children: ["8", "9", "10", "11", "12"],
                     dataset: {
                         "200505": {
                             actual: 20,
@@ -105,6 +105,81 @@ export default function() {
                 }, {
                     kpiId: "7",
                     name: "kpi7",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "8",
+                    name: "kpi8",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "9",
+                    name: "kpi9",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "10",
+                    name: "kpi10",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "11",
+                    name: "kpi11",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "12",
+                    name: "kpi12",
                     unit: "",
                     children: [],
                     dataset: {

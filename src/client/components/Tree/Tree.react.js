@@ -1,8 +1,11 @@
 import React from "react";
-import { getNodePositions } from "./Tree.utils";
-import { getKPIData } from "../../dataUtils";
+
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
+
+import { getNodePositions } from "./Tree.utils";
+import { getKPIData } from "../../dataUtils";
+
 
 let KpiTree = React.createClass({
 

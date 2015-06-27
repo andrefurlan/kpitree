@@ -1,6 +1,6 @@
 import { Map, List, fromJS } from "immutable";
 
-import { NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING, NODEHPADDING,
+import { MINTOP, NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING, NODEHPADDING,
          NODEVPADDING } from "./Tree.constants";
 import { getKPIChildren, getRootKPI } from "../../dataUtils";
 
@@ -19,31 +19,39 @@ export function getNodePositions(appState) {
     if (treeState.size === 0) {
         return positions;
     }
+    let min = Infinity;
     // loop the state getting the children and computing their position
-    treeState.forEach((parentId, treeStateindex, treeState) => {
+    treeState.forEach((parentId) => {
         let children = getKPIChildren(parentId, appState);
         const parentPosition = positions.filter((pos) => {
             return pos.get("kpiId") === parentId;
         }).get(0).get("position");
         children.forEach((kpiId, childrenIndex, children) => {
-            positions = positions.push(
-                computePosition(kpiId, childrenIndex, children.size, parentPosition)
-            );
+            const position = computePosition(kpiId, childrenIndex, children.size, parentPosition);
+            min = Math.min(min, position.getIn(["position", "y"]));
+            positions = positions.push(position);
         });
-        
     });
-
-    return positions;
+    return applyOffset(positions, min);
 
     function computePosition(kpiId, index, numSiblings, parentPosition) {
         const x = parentPosition.get("x") + NODEWIDTH + NODEHSPACING;
         const height = ((numSiblings * NODEHEIGHT) + ((numSiblings - 1) * NODEVSPACING));
         const top = ((parentPosition.get("y") + NODEHEIGHT / 2) - (height / 2));
-        const y = top + (index * (NODEHEIGHT + NODEVSPACING))+10;
+        const y = top + (index * (NODEHEIGHT + NODEVSPACING));
         return Map({
             "kpiId": kpiId,
             "position": Map({"x": x, "y": y})
         });
+    }
+
+    function applyOffset(positions, min) {
+        return positions.map(function(p) {
+            return p.updateIn(["position", "y"], function(y) {
+                const offset = min < MINTOP ? (-1*min)+MINTOP : 0;
+                return y + offset;
+            });
+        });        
     }
 
 }

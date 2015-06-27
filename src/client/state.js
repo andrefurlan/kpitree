@@ -44,29 +44,3 @@ export default class State {
     }
 
 }
-
-// export const stateRecord = immutable.Record({
-//     tree:       immutable.List(),
-//     datePicker: immutable.Map(),
-//     data:       immutable.Map()
-// });
-
-// export const treeNodeRecord = immutable.Record({
-//     kpiId: "",
-//     position: immutable.Map({x: 0, y: 0})
-// });
-
-// export const dataRecord = immutable.Record({
-//     user: "",
-//     datasetName: "",
-//     kpis: immutable.List()
-// });
-
-// export const kpiDataRecord = immutable.Record({
-//     kpiId: "",
-//     name: "",
-//     unit: "",
-//     magnitude: "",
-//     children: immutable.List(),
-//     dataset: immutable.OrderedMap()
-// });

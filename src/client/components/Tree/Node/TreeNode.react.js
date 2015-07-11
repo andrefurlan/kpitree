@@ -6,10 +6,9 @@ import * as utils from "./TreeNode.utils";
 let TreeNode = React.createClass({
 
     render: function() {
-        const nodeStyle = {left: this.props.left, top: this.props.top};
 
         return (
-            <div className="TreeNode" style={nodeStyle}>
+            <div className="TreeNode" style={this.props.style}>
                 <TreeNodeHeader 
                     kpiId={this.props.kpiId}
                     kpiName={utils.getKpiName(this.props.data)}

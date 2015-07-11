@@ -6,7 +6,6 @@ import {Link, Route, RouteHandler} from "react-router";
 import KPITreeHandler from "./components/Tree/Tree.react.js";
 import './uglyTheme.css';
 
-
 let App = React.createClass({
     update: function(newState) {
         this.setState(newState);
@@ -16,7 +15,8 @@ let App = React.createClass({
         return {appState: initialAppState};
     },
 
-    render() {
+    render: function() {
+
         return (
             <div className="app">
                 <nav>

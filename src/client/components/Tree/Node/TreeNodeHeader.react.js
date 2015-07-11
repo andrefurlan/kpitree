@@ -1,8 +1,8 @@
 import React from "react";
 import TreeNodeDrillBtn from "./TreeNodeDrillBtn.react";
 
-let TreeNodeHeader = React.createClass({
-    render: function() {
+class TreeNodeHeader extends React.Component {
+    render() {
         return (
             <div className="NodeHeader">
                 <div className="NodeHeader-name">
@@ -16,6 +16,6 @@ let TreeNodeHeader = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default TreeNodeHeader;

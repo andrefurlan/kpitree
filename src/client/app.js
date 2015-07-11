@@ -6,17 +6,23 @@ import {Link, Route, RouteHandler} from "react-router";
 import KPITreeHandler from "./components/Tree/Tree.react.js";
 import './uglyTheme.css';
 
-let App = React.createClass({
-    update: function(newState) {
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        // Set initial state.
+        this.state = this.getState();
+    }
+
+    
+    update(newState) {
         this.setState(newState);
-    },
-    getInitialState: function() {
-        const initialAppState = new State(initialState(), this.update);
+    }
+    getState() {
+        const initialAppState = new State(initialState(), this.update.bind(this));
         return {appState: initialAppState};
-    },
+    }
 
-    render: function() {
-
+    render() {
         return (
             <div className="app">
                 <nav>
@@ -27,7 +33,7 @@ let App = React.createClass({
             </div>
         );
     }
-});
+}
 
 let routes = (
     <Route handler={App} name="app" path="/" >

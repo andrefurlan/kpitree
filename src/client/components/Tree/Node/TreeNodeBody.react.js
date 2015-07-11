@@ -1,7 +1,7 @@
 import React from "react";
 
-let TreeNodeBody = React.createClass({
-    render: function() {
+class TreeNodeBody extends React.Component {
+    render() {
         var delta = "\u0394%";
         return (
             <div className="NodeBody">
@@ -21,6 +21,6 @@ let TreeNodeBody = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default TreeNodeBody;

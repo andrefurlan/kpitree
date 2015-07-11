@@ -10,9 +10,9 @@ import { getElementsPositions } from "./Tree.utils";
 import { getKPIData } from "../../dataUtils";
 
 
-let KpiTree = React.createClass({
+class KpiTree extends React.Component {
 
-    render: function() {
+    render() {
         const appState = this.props.appState;
         // the tree state is just a array of deployed kpis
         const positions = getElementsPositions(appState);
@@ -53,6 +53,6 @@ let KpiTree = React.createClass({
             </section>
         );
     }
-});
+}
 
 export default KpiTree;

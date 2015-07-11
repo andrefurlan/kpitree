@@ -3,10 +3,9 @@ import TreeNodeHeader from "./TreeNodeHeader.react";
 import TreeNodeBody from "./TreeNodeBody.react";
 import * as utils from "./TreeNode.utils";
 
-let TreeNode = React.createClass({
+class TreeNode extends React.Component {
 
-    render: function() {
-
+    render() {
         return (
             <div className="TreeNode" style={this.props.style}>
                 <TreeNodeHeader 
@@ -21,6 +20,6 @@ let TreeNode = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default TreeNode;

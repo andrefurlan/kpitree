@@ -1,19 +1,18 @@
 import React from "react";
 
-let PeriodPicker = React.createClass({
-    
-    
-    onKeyEnter: function(value) {
+class PeriodPicker extends React.Component {
+
+    onKeyEnter(value) {
         this.props.actions.saveEdit(value)
-    },
-    onInputKeyDown: function(e) {
+    }
+    onInputKeyDown(e) {
         switch (e.key) {
             case 'Enter': 
                 this.onKeyEnter(e.target.value); break;
             // case 'Escape': this.onKeyEscape(e); break;
         }
-    },
-    render: function() {
+    }
+    render() {
         return (
             <input
                 type="text"
@@ -22,6 +21,6 @@ let PeriodPicker = React.createClass({
             </input>
         );
     }
-});
+}
 
 export default PeriodPicker;

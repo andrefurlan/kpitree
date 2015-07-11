@@ -1,18 +1,17 @@
 import React from "react";
 
-
-let TreeNodeDrillBtn = React.createClass({
-    handleClick: function() {
+class TreeNodeDrillBtn extends React.Component {
+    handleClick() {
         this.props.actions.drillNode(this.props.kpiId);
-    },
-    render: function() {
+    }
+    render() {
         var symbol = ">";
         return (
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleClick.bind(this)}>
                 {symbol}
             </button>
         );
     }
-});
+}
 
 export default TreeNodeDrillBtn;

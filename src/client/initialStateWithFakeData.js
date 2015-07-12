@@ -15,37 +15,40 @@ export default function() {
                     kpiId: "1",
                     name: "sales/person",
                     unit: "CND",
+                    orientation: "up",
                     magnitude: "",
                     children: ["2", "3"],
                     dataset: {
                         "200505": {
-                            actual: 10.000,
-                            target: 10.000
+                            actual: 10000,
+                            target: 10004
                         },
                         "200506": {
-                            actual: 13.000,
-                            target: 16.000
+                            actual: 13000,
+                            target: 16000
                         }
                     }
                 }, {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
+                    orientation: "up",
                     children: ["4", "5"],
                     dataset: {
                         "200505": {
-                                actual: 100.000,
-                                target: 100.000
+                                actual: 100000,
+                                target: 100000
                             },
                         "200506": {
-                                actual: 130.000,
-                                target: 160.000
+                                actual: 130000,
+                                target: 160000
                             }
                         }
                 }, {
                     kpiId: "3",
                     name: "person",
                     unit: "",
+                    orientation: "down",
                     children: ["8", "9", "10", "11", "12"],
                     dataset: {
                         "200505": {
@@ -61,21 +64,23 @@ export default function() {
                     kpiId: "4",
                     name: "kpi4",
                     unit: "CND",
+                    orientation: "up",
                     children: ["6", "7"],
                     dataset: {
                         "200505": {
-                            actual: 100.004,
-                            target: 400.004
+                            actual: 100004,
+                            target: 400004
                         },
                         "200506": {
-                            actual: 130.004,
-                            target: 160.044
+                            actual: 130004,
+                            target: 160044
                         }
                     }
                 }, {
                     kpiId: "5",
                     name: "kpi5",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -91,6 +96,7 @@ export default function() {
                     kpiId: "6",
                     name: "kpi6",
                     unit: "",
+                    orientation: "up",
                     children: ["13"],
                     dataset: {
                         "200505": {
@@ -121,11 +127,12 @@ export default function() {
                     kpiId: "8",
                     name: "kpi8",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
-                            actual: 25,
-                            target: 15
+                            actual: 0,
+                            target: 100
                         },
                         "200506": {
                             actual: 15,
@@ -136,11 +143,12 @@ export default function() {
                     kpiId: "9",
                     name: "kpi9",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
-                            actual: 25,
-                            target: 15
+                            actual: -80,
+                            target: -100
                         },
                         "200506": {
                             actual: 15,
@@ -154,8 +162,8 @@ export default function() {
                     children: [],
                     dataset: {
                         "200505": {
-                            actual: 25,
-                            target: 15
+                            actual: 100000,
+                            target: 0.1
                         },
                         "200506": {
                             actual: 15,

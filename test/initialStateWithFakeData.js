@@ -2,12 +2,9 @@ import immutable from "immutable";
 
 export default function() {
     return {
-        tree: [{
-            kpiId: "1",
-            position: {x: 20, y: 200}
-        }],
-        datePicker: {
-            period: 200505
+        tree: [],
+        periodPicker: {
+            period: "200505"
         },
         data: {
             user: "andre",
@@ -18,14 +15,15 @@ export default function() {
                     kpiId: "1",
                     name: "sales/person",
                     unit: "CND",
+                    orientation: "up",
                     magnitude: "",
-                    children: ["2", "3", "4"],
+                    children: ["2", "3"],
                     dataset: {
-                        200505: {
+                        "200505": {
                             actual: 10.000,
                             target: 10.000
                         },
-                        200506: {
+                        "200506": {
                             actual: 13.000,
                             target: 16.000
                         }
@@ -34,13 +32,14 @@ export default function() {
                     kpiId: "2",
                     name: "sales",
                     unit: "CND",
-                    children: ["5"],
+                    orientation: "up",
+                    children: ["4", "5"],
                     dataset: {
-                        200505: {
+                        "200505": {
                                 actual: 100.000,
                                 target: 100.000
                             },
-                        200506: {
+                        "200506": {
                                 actual: 130.000,
                                 target: 160.000
                             }
@@ -49,13 +48,14 @@ export default function() {
                     kpiId: "3",
                     name: "person",
                     unit: "",
-                    children: [],
+                    orientation: "down",
+                    children: ["8", "9", "10", "11", "12"],
                     dataset: {
-                        200505: {
+                        "200505": {
                             actual: 20,
                             target: 10
                         },
-                        200506: {
+                        "200506": {
                             actual: 13,
                             target: 16
                         }
@@ -64,13 +64,14 @@ export default function() {
                     kpiId: "4",
                     name: "kpi4",
                     unit: "CND",
-                    children: ["3", "5"],
+                    orientation: "up",
+                    children: ["6", "7"],
                     dataset: {
-                        200505: {
+                        "200505": {
                             actual: 100.004,
                             target: 400.004
                         },
-                        200506: {
+                        "200506": {
                             actual: 130.004,
                             target: 160.044
                         }
@@ -79,13 +80,392 @@ export default function() {
                     kpiId: "5",
                     name: "kpi5",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
-                        200505: {
+                        "200505": {
                             actual: 25,
                             target: 15
                         },
-                        200506: {
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "6",
+                    name: "kpi6",
+                    unit: "",
+                    orientation: "up",
+                    children: ["13"],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "7",
+                    name: "kpi7",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "8",
+                    name: "kpi8",
+                    unit: "",
+                    orientation: "up",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "9",
+                    name: "kpi9",
+                    unit: "",
+                    orientation: "up",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "10",
+                    name: "kpi10",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "11",
+                    name: "kpi11",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "12",
+                    name: "kpi12",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "13",
+                    name: "kpi13",
+                    unit: "",
+                    children: ["14", "15"],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "14",
+                    name: "kpi14",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "15",
+                    name: "kpi15",
+                    unit: "",
+                    children: ["16", "17", "18", "19"],
+                    dataset: {
+                        "200505": {
+                            actual: 15,
+                            target: 16
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 16
+                        }
+                    }
+                }, {
+                    kpiId: "16",
+                    name: "kpi16",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 16,
+                            target: 17
+                        },
+                        "200506": {
+                            actual: 16,
+                            target: 17
+                        }
+                    }
+                }, {
+                    kpiId: "17",
+                    name: "kpi17",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 17,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "18",
+                    name: "kpi18",
+                    unit: "",
+                    children: ["20", "21", "22"],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "19",
+                    name: "kpi19",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "20",
+                    name: "kpi20",
+                    unit: "",
+                    children: ["23", "24", "25", "26"],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "21",
+                    name: "kpi21",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "22",
+                    name: "kpi22",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "23",
+                    name: "kpi23",
+                    unit: "",
+                    children: ["27", "28", "29", "30"],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "24",
+                    name: "kpi24",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "25",
+                    name: "kpi25",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "26",
+                    name: "kpi26",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "27",
+                    name: "kpi27",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "28",
+                    name: "kpi28",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "29",
+                    name: "kpi29",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "30",
+                    name: "kpi30",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
                             actual: 15,
                             target: 165
                         }

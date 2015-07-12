@@ -2,12 +2,13 @@ import React from "react";
 
 class TreeNodeBody extends React.Component {
     render() {
-        var delta = "\u0394%";
+        const delta = "\u0394%";
+        const style = {backgroundColor: this.props.flagColor}
         return (
             <div className="NodeBody">
                 <div className="NodeBody-row">
                     <div className="NodeBody-label"> TARGET </div>
-                    <div className= "NodeBody-value"> {this.props.targetValue} </div>
+                    <span className= "NodeBody-value"> {this.props.targetValue} </span>
                 </div>
                 <div className="NodeBody-row">
                     <div className= "NodeBody-label"> ACTUAL </div>
@@ -16,7 +17,7 @@ class TreeNodeBody extends React.Component {
                 <div className="NodeBody-row">
                     <div className= "NodeBody-label"> {delta}</div>
                     <div className= "NodeBody-value-dev"> {this.props.deltaValue} </div>
-                    <div className= "NodeBody-flag"> </div>
+                    <div className= "NodeBody-flag" style={style}> </div>
                 </div>
             </div>
         );

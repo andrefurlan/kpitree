@@ -3,10 +3,10 @@ import React from "react";
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
 
-import PeriodPicker from "../PeriodPicker/PeriodPicker.react.js";
-import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions.js";
+import PeriodPicker from "../PeriodPicker/PeriodPicker.react";
+import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
 
-import { getElementsPositions } from "./Tree.utils";
+import { getElementsPositions } from "./Tree.helpers";
 import { getKPIData } from "../../dataUtils";
 
 

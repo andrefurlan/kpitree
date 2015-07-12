@@ -1,7 +1,7 @@
 import React from "react";
 import TreeNodeHeader from "./TreeNodeHeader.react";
 import TreeNodeBody from "./TreeNodeBody.react";
-import * as utils from "./TreeNode.utils";
+import * as helpers from "./TreeNode.helpers";
 
 class TreeNode extends React.Component {
 
@@ -10,13 +10,14 @@ class TreeNode extends React.Component {
             <div className="TreeNode" style={this.props.style}>
                 <TreeNodeHeader 
                     kpiId={this.props.kpiId}
-                    kpiName={utils.getKpiName(this.props.data)}
+                    kpiName={helpers.getKpiName(this.props.data)}
                     actions={this.props.actions}/>
                 <TreeNodeBody
                     kpiId={this.props.kpiId}
-                    targetValue={utils.getTargetValue(this.props.data)}
-                    actualValue={utils.getActualValue(this.props.data)}
-                    deltaValue={utils.getDelta(this.props.data)}/>
+                    targetValue={helpers.getTargetValue(this.props.data)}
+                    actualValue={helpers.getActualValue(this.props.data)}
+                    deltaValue={helpers.getDelta(this.props.data)}
+                    flagColor={helpers.getFlagColor(this.props.data)}/>
             </div>
         );
     }

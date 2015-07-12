@@ -1,6 +1,6 @@
 import React from "react";
 
-class TreeNodeDrillBtn extends React.Component {
+export default class TreeNodeDrillBtn extends React.Component {
     handleClick() {
         this.props.actions.drillNode(this.props.kpiId);
     }
@@ -13,5 +13,3 @@ class TreeNodeDrillBtn extends React.Component {
         );
     }
 }
-
-export default TreeNodeDrillBtn;

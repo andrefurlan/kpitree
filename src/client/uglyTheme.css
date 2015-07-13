@@ -11,14 +11,16 @@ html {
 }
 
 html, input {
-  font-family:
+  /*font-family:
     "HelveticaNeue-Light",
     "Helvetica Neue Light",
     "Helvetica Neue",
     Helvetica,
     Arial,
     "Lucida Grande",
-    sans-serif;
+    sans-serif;*/
+
+    font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -95,7 +97,6 @@ section {
 }
 .NodeBody-row {
     display: flex;
-
 }
 
 .NodeBody {
@@ -110,6 +111,7 @@ section {
 .TreeNode {
     width: 200px;
     position: absolute;
+
 }
 
 .connector {

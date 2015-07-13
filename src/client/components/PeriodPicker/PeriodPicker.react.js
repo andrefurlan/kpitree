@@ -20,11 +20,14 @@ class PeriodPicker extends React.Component {
     }
     render() {
         return (
-            <input
-                type="text"
-                name="datePicker"
-                onKeyDown={this.onInputKeyDown.bind(this)}>
-            </input>
+            <div>
+                <span> Period </span>
+                <input
+                    type="text"
+                    name="datePicker"
+                    onKeyDown={this.onInputKeyDown.bind(this)}>
+                </input>
+            </div>
         );
     }
 }

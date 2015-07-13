@@ -121,5 +121,5 @@ export function getFlagColor(data) {
         return "rgb(255,0,0)";
     }
 
-    return "rgb(255,255,0);";
+    return "rgb(255,255,0)";
 }

@@ -39,6 +39,8 @@
   "dependencies": {
     "eventemitter3": "^1.1.0",
     "express": "^4.13.0",
-    "immutable": "^3.7.3"
+    "immutable": "^3.7.3",
+    "material-ui": "^0.10.0",
+    "react-tap-event-plugin": "^0.1.7"
   }
 }

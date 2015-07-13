@@ -1,46 +1,18 @@
-import State from "./state";
-import initialState from "./initialStateWithFakeData";
 import React from "react";
 import Router from "react-router";
-import {Link, Route, RouteHandler} from "react-router";
-import KPITreeHandler from "./components/Tree/Tree.react.js";
+import { routes } from "./app-routes";
+import Master from "./master";
 import './uglyTheme.css';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        // Set initial state.
-        this.state = this.getState();
-    }
 
-    
-    update(newState) {
-        this.setState(newState);
-    }
-    getState() {
-        const initialAppState = new State(initialState(), this.update.bind(this));
-        return {appState: initialAppState};
-    }
+// Router.run(routes, function(Handler) {
+//     React.render(<Handler/>, document.getElementById("container"));
+// });
 
-    render() {
-        return (
-            <div className="app">
-                <nav>
-                    <Link to="app">Home</Link>
-                    <Link to="kpitree">KPI Tree</Link>
-                </nav>
-                <RouteHandler {...this.state}/>
-            </div>
-        );
-    }
-}
-
-let routes = (
-    <Route handler={App} name="app" path="/" >
-      <Route handler={KPITreeHandler} name="kpitree" path="/kpitree" />
-    </Route>
-);
-
-Router.run(routes, function(Handler) {
+Router.create({
+    routes: routes,
+    scrollBehavior: Router.ScrollToTopBehavior
+})
+.run(function (Handler) {
     React.render(<Handler/>, document.getElementById("container"));
 });

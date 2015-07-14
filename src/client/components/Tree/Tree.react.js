@@ -9,7 +9,6 @@ import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
 import { getElementsPositions } from "./Tree.helpers";
 import { getKPIData } from "../../dataUtils";
 
-
 class KpiTree extends React.Component {
 
     render() {

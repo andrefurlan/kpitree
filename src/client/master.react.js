@@ -28,7 +28,6 @@ class Master extends React.Component {
 
     render() {
         const style = this.getStyles();
-        const clickHandle = function(e) {window.alert("Start demo")};
         const menuItems = [
             { route: 'home', text: 'Home' },
             { route: 'demo', text: 'Start demo' }

@@ -3,7 +3,7 @@ import { RaisedButton, Styles } from "material-ui";
 
 class Home extends React.Component {
 
-	getStyles() {
+    getStyles() {
         return {
             middle: {
                 width: "100%",
@@ -26,15 +26,17 @@ class Home extends React.Component {
     }
 
     render() {
-    	const style = this.getStyles();
-    	const clickHandle = function(e) {window.alert("Start demo")};
- 		return (
- 			<div style={style.middle}>
+        const style = this.getStyles();
+        const clickHandle = function(e) {
+            this.context.router.transitionTo("demo");
+        };
+        return (
+            <div style={style.middle}>
                 <div style={style.description}>
                     <h2>
                         Small app to analyze KPI performance using a tree diagram
                     </h2>
-                    <RaisedButton label="Demo" onClick={clickHandle} style={style.button} />
+                    <RaisedButton label="Demo" onClick={clickHandle.bind(this)} style={style.button} />
                 </div>
                 <div>
                     <p>
@@ -42,8 +44,12 @@ class Home extends React.Component {
                     </p>
                 </div>
             </div>
- 		);   	
+        );      
     }
+}
+
+Home.contextTypes = {
+    router: React.PropTypes.func
 }
 
 export default Home;

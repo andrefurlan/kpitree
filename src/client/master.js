@@ -1,6 +1,6 @@
 import React from "react";
 import { RouteHandler } from "react-router";
-import { AppBar, AppCanvas, IconButton, Menu, Paper, RaisedButton, Styles } from "material-ui";
+import { AppBar, AppCanvas, LeftNav, IconButton, Menu, Paper, RaisedButton, Styles } from "material-ui";
 
 import State from "./state";
 import initialState from "./initialStateWithFakeData";
@@ -40,10 +40,13 @@ class Master extends React.Component {
                 textAlign: "center"
             },
             description: {
-                paddingTop: "64",
+                paddingTop: "30",
+                paddingBottom: "50",
+                backgroundColor: Styles.Colors.amber500,
             },
             button: {
-                marginTop: "100"
+                marginTop: "100",
+                marginBottom: "50"
             },
             footer: {
                 width: "100%",
@@ -63,23 +66,27 @@ class Master extends React.Component {
     render() {
         const style = this.getStyles();
         const clickHandle = function(e) {window.alert("Start demo")};
+        const menuItems = [
+            { route: 'kpitree', text: 'Start demo' }
+        ];
         return (
             <AppCanvas style={style.canvas}>
                 <AppBar
                     onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap.bind(this)}
                     style={style.appBar}
                     title="KPI Tree"
-                    zDepth={1}>
+                    zDepth={0}>
                 </AppBar>
+                <LeftNav ref="leftNav" docked={false} menuItems={menuItems} />
                 <RouteHandler />
                 <div style={style.middle}>
                     <div style={style.description}>
                         <h2>
                             Small app to analyze KPI performance using a tree diagram
                         </h2>
+                        <RaisedButton label="Demo" onClick={clickHandle} style={style.button} />
                     </div>
-                    <RaisedButton label="Demo" onClick={clickHandle} style={style.button} />
-                    <div style={style.description}>
+                    <div>
                         <p>
                             This is work in progress, but it will eventually be really cool
                         </p>
@@ -90,7 +97,7 @@ class Master extends React.Component {
     }
 
     _onLeftIconButtonTouchTap() {
-        window.alert("abra-te cesamo!")
+        this.refs.leftNav.toggle();
     }
 
 }

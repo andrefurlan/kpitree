@@ -34,7 +34,7 @@ class Master extends React.Component {
         ];
         const selectedIndex = this._getSelectedIndex.bind(this)(menuItems);
         return (
-            <AppCanvas style={ style.canvas }>
+            <AppCanvas>
                 <AppBar
                     onLeftIconButtonTouchTap={ this._onLeftIconButtonTouchTap.bind(this) }
                     style={ style.appBar }

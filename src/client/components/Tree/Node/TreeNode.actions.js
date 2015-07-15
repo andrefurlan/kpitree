@@ -13,7 +13,6 @@ export default class NodeActions {
         
         const newTreeState = getNewTreeState(kpiId, treeState, this._appState);
 
-        console.log(newTreeState.toJS());
         // use cursors, only set the specific part of the state
         const newState = state.set("tree", newTreeState);
         this._appState.set(newState);

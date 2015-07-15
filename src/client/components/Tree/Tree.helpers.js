@@ -42,7 +42,7 @@ export function getElementsPositions(appState) {
                 connPos = connPos.update("children", children => 
                     children.withMutations(children => children.push(Map({
                         "key": kpiId, 
-                        "style": Map({"top": childrenIndex*109, "width": 15, "left": -1})
+                        "style": Map({"top": childrenIndex * (NODEHEIGHT + NODEVSPACING - 1), "width": NODEHSPACING / 2, "left": -1})
                     })))
                 );
             });
@@ -72,7 +72,7 @@ export function getElementsPositions(appState) {
         return Map({
             "key": kpiId,
             "style": Map({"top": ((parentPosition.get("top") + NODEHEIGHT / 2) - (height / 2) + NODEHEIGHT/2), "left": parentPosition.get("left") + NODEWIDTH}),
-            "parent": Map({"top": height/2 - NODEHEIGHT/2, "width": 15}),
+            "parent": Map({"top": height/2 - NODEHEIGHT/2, "width": NODEHSPACING / 2}),
             "row": Map({"height": height - NODEHEIGHT}),
             "children": List()
         });

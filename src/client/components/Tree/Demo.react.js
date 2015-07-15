@@ -24,14 +24,6 @@ class Demo extends React.Component {
         return { appState: initialAppState };
     }
 
-    getStyles() {
-        return {
-            appBar: {
-                backgroundColor: Styles.Colors.amber500
-            }
-        };
-    }
-
     render() {
         return (
             <Tree {...this.state} />

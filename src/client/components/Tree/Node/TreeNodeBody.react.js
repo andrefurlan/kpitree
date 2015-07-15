@@ -7,11 +7,11 @@ class TreeNodeBody extends React.Component {
         return (
             <div className="NodeBody">
                 <div className="NodeBody-row">
-                    <div className="NodeBody-label"> TARGET </div>
+                    <div className="NodeBody-label"> Target </div>
                     <span className= "NodeBody-value"> {this.props.targetValue} </span>
                 </div>
                 <div className="NodeBody-row">
-                    <div className= "NodeBody-label"> ACTUAL </div>
+                    <div className= "NodeBody-label"> Actual </div>
                     <div className= "NodeBody-value"> {this.props.actualValue} </div>
                 </div>
                 <div className="NodeBody-row">

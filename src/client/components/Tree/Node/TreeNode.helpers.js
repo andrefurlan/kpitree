@@ -25,9 +25,9 @@ export function getDelta(data) {
     let delta = 0;
     if (target === 0) return "-";
     delta = actual / target -1;
-    if (delta > 5) return  500.0.toFixed(2) + "%" + "+";
-    if (delta < -5) return 500.0.toFixed(2) + "%" + "-";
-    return (delta * 100).toFixed(2) + "%";
+    if (delta > 5) return  500.0.toFixed(1) + "%" + "+";
+    if (delta < -5) return 500.0.toFixed(1) + "%" + "-";
+    return (delta * 100).toFixed(1) + "%";
 }
 
 export function calculateScore(actual, target, orientation) {

@@ -4,7 +4,8 @@ export default function() {
     return {
         tree: [],
         periodPicker: {
-            period: "200505"
+            period: "200505",
+            index: "0"
         },
         data: {
             user: "andre",

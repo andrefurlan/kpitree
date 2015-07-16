@@ -1,6 +1,6 @@
 import { Map, List, fromJS } from "immutable";
 
-import { MINTOP, NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING, NODEHPADDING,
+import { MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING, NODEHPADDING,
          NODEVPADDING } from "./Tree.constants";
 import { getKPIChildren, getRootKPI } from "../../dataUtils";
 
@@ -24,7 +24,9 @@ export function getElementsPositions(appState) {
             connector: connectorPositions
         });
     }
-    let min = Infinity;
+    let top = Infinity;
+    let bottom = -Infinity;
+    let right = -Infinity;
     // loop the state getting the children and computing their position
     treeState.forEach((parentId) => {
         let children = getKPIChildren(parentId, appState);
@@ -36,7 +38,9 @@ export function getElementsPositions(appState) {
 
             children.forEach((kpiId, childrenIndex, children) => {
                 const nodePosition = computeNodePosition(kpiId, childrenIndex, children.size, parentPosition);
-                min = Math.min(min, nodePosition.getIn(["style", "top"]));
+                top = Math.min(top, nodePosition.getIn(["style", "top"]));
+                bottom = Math.max(bottom, nodePosition.getIn(["style", "top"]) + NODEHEIGHT);
+                right = Math.max(right, nodePosition.getIn(["style", "left"]) + NODEWIDTH);
                 nodePositions = nodePositions.push(nodePosition);
                 // insert position of each connector children
                 connPos = connPos.update("children", children => 
@@ -51,8 +55,11 @@ export function getElementsPositions(appState) {
         }
     });
     return Map({
-        node: applyOffset(nodePositions, min),
-        connector: applyOffset(connectorPositions, min)
+        node: applyOffset(nodePositions, top),
+        connector: applyOffset(connectorPositions, top),
+        top: top,
+        bottom: bottom,
+        right: right
     });
 
     function computeNodePosition(kpiId, index, numSiblings, parentPosition) {
@@ -112,5 +119,6 @@ export function getNewTreeState(kpiId, treeState, appState) {
 }
 
 export function getInitialPosition(appState) {
-    return Map({left:20, top:200});
+    // TODO: calculate this correctly
+    return Map({left: MINLEFT, top: 200});
 }

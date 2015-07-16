@@ -1,32 +1,47 @@
 import React from "react";
+import { DropDownMenu, Styles } from "material-ui";
 
 class PeriodPicker extends React.Component {
 
-    onKeyEnter(value) {
-        this.props.actions.saveEdit(value);
+
+    onIndexChange(e, key, payload) {
+        this.props.actions.saveEdit(payload.code, payload.payload-1);
     }
-    onKeyEscape(e) {
-        e.target.value = "";
+
+    getStyles() {
+        return {
+            "menu": {
+                width: 192,
+                height: 56
+            },
+            "toolbar": {
+                paddingLeft: 24,
+                paddingRight: 24,
+                height: 56,
+                backgroundColor: "white"
+            }
+        };
     }
-    onInputKeyDown(e) {
-        switch (e.key) {
-            case 'Enter': 
-                this.onKeyEnter(e.target.value);
-                break;
-            case 'Escape':
-                this.onKeyEscape(e);
-                break;
-        }
-    }
+
     render() {
+
+        const filterOptions = [
+            { payload: "1", text: "05/2005", code: "200505" },
+            { payload: "2", text: "06/2005", code: "200506" },
+            { payload: "3", text: "07/2005", code: "200507" }
+        ];
+
+        const selectedIndex = Number(this.props.state.get("index"));
+        const styles = this.getStyles();
         return (
-            <div>
-                <span> Period </span>
-                <input
-                    type="text"
-                    name="datePicker"
-                    onKeyDown={this.onInputKeyDown.bind(this)}>
-                </input>
+            <div style={ styles.toolbar }>
+                <DropDownMenu
+                    autoWidth={ false }
+                    style={ styles.menu }
+                    menuItems={ filterOptions }
+                    onChange={ this.onIndexChange.bind(this) }
+                    selectedIndex={ selectedIndex } >
+                </DropDownMenu>
             </div>
         );
     }

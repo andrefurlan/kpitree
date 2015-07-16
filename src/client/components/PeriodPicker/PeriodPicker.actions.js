@@ -8,9 +8,9 @@ export default class PeriodPickerActions {
     }
 
     // Invariant: Deployed nodes are ordered
-    saveEdit(value) {
+    saveEdit(code, index) {
         const state = this._appState.get();
-        const perioPickerState = Map({"period": value});
+        const perioPickerState = Map({"period": code, "index": index});
         // use cursors, only set the specific part of the state
         const newState = state.set("periodPicker", perioPickerState);
         this._appState.set(newState);

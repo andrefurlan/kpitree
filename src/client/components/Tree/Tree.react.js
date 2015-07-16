@@ -2,11 +2,11 @@ import React from "react";
 
 const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-import { Styles } from "material-ui";
+import { Toolbar, ToolbarGroup, Styles } from "material-ui";
 
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
-import { NODEWIDTH } from "./Tree.constants.js";
+import { NODEWIDTH, MINBOTTOM, MINTOP, MINRIGHT, MINLEFT } from "./Tree.constants.js";
 
 import PeriodPicker from "../PeriodPicker/PeriodPicker.react";
 import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
@@ -26,7 +26,7 @@ class KpiTree extends React.Component {
                 overflow: "auto"
             },
             "KPITreeContainer": {
-                height: "calc(100% - 21px)",
+                height: "calc(100% - 56px)",
                 width: "100%",
                 overflow: "auto"
             },
@@ -38,7 +38,7 @@ class KpiTree extends React.Component {
             },
             "KPITree": {
                 height: "110%",
-                width: "100%",
+                width: "110%",
                 position: "relative"
             },
             "TreeNode": {
@@ -58,16 +58,21 @@ class KpiTree extends React.Component {
         // the tree state is just a array of deployed kpis
         const positions = getElementsPositions(appState);
         const nodeActions = new NodeActions(appState);
+        
         const periodPickerActions = new PeriodPickerActions(appState);
+        const periodPickerState = appState.getIn(["periodPicker"]);
 
         const styles = this.getStyles();
+        styles.KPITree.height = (positions.get("bottom") - positions.get("top")) + MINBOTTOM + MINTOP;
+        styles.KPITree.width = (positions.get("right") + MINRIGHT);
         // TODO: period picker
 
         return (
             <div ref="demo" style={ styles.demo }>
                 <PeriodPicker
                     ref="PeriodPicker"
-                    actions = {periodPickerActions}>
+                    actions={ periodPickerActions }
+                    state={ periodPickerState }>
                 </PeriodPicker>
                 <div ref="KPITreeContainer" style={ styles.KPITreeContainer }>
                     <div style={ styles.scrollContainer }>

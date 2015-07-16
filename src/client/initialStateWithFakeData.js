@@ -34,7 +34,7 @@ export default function() {
                     name: "sales",
                     unit: "CND",
                     orientation: "up",
-                    children: ["4", "5"],
+                    children: ["4", "5", "31", "32", "33", "34"],
                     dataset: {
                         "200505": {
                                 actual: 100000,
@@ -459,6 +459,66 @@ export default function() {
                 }, {
                     kpiId: "30",
                     name: "kpi30",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "31",
+                    name: "kpi31",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "32",
+                    name: "kpi32",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "33",
+                    name: "kpi33",
+                    unit: "",
+                    children: [],
+                    dataset: {
+                        "200505": {
+                            actual: 25,
+                            target: 15
+                        },
+                        "200506": {
+                            actual: 15,
+                            target: 165
+                        }
+                    }
+                }, {
+                    kpiId: "34",
+                    name: "kpi34",
                     unit: "",
                     children: [],
                     dataset: {

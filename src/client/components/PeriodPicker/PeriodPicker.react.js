@@ -18,7 +18,7 @@ class PeriodPicker extends React.Component {
                 paddingLeft: 24,
                 paddingRight: 24,
                 height: 56,
-                backgroundColor: "white"
+                backgroundColor: Styles.Colors.amber100
             }
         };
     }

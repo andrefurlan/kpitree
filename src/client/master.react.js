@@ -26,6 +26,15 @@ class Master extends React.Component {
         }
     }
 
+    componentWillMount() {
+        ThemeManager.setPalette({accent1Color: Styles.Colors.amber700});
+        ThemeManager.setComponentThemes({
+            toolBar: {
+                height: 10
+            }
+        });
+    }
+
     render() {
         const style = this.getStyles();
         const menuItems = [

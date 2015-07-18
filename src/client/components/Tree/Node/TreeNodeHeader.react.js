@@ -27,18 +27,24 @@ class TreeNodeHeader extends React.Component {
     render() {
         const styles = this.getStyles();
         return (
-            <div className="NodeHeader" style={ styles.root }>
-                <div className="NodeHeader-name" style={ styles.name }>
+            <div className="NodeHeader" style={styles.root}>
+                <div className="NodeHeader-name" style={styles.name}>
                     <span> { this.props.kpiName } </span>
                 </div>
-                <div className="NodeHeader-button" style={ styles.button }>
+                <div className="NodeHeader-button" style={styles.button}>
                     <TreeNodeDrillBtn
-                        kpiId={ this.props.kpiId }
-                        actions={ this.props.actions }/>
+                        actions={ this.props.actions }
+                        kpiId={ this.props.kpiId } />
                 </div>
             </div>
         );
     }
 }
+
+TreeNodeHeader.propTypes = {
+    actions: React.PropTypes.object.required,
+    kpiId: React.PropTypes.string.required,
+    kpiName: React.propTypes.string
+};
 
 export default TreeNodeHeader;

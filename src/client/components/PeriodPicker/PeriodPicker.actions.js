@@ -1,6 +1,3 @@
-// import {getNewTreeState} from "../Tree.utils";
-import { Map } from "immutable";
-
 export default class PeriodPickerActions {
 
     constructor(appState) {

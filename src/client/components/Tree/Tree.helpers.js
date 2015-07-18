@@ -1,22 +1,23 @@
-import { Map, List, fromJS } from "immutable";
+import {Map, List} from "immutable";
 
-import { MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING, NODEHPADDING,
-         NODEVPADDING } from "./Tree.constants";
-import { getKPIChildren, getRootKPI } from "../../dataUtils";
+import {MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH, NODEHSPACING, NODEVSPACING} from "./Tree.constants";
+import {getKPIChildren, getRootKPI} from "../../dataUtils";
 
 
 export function getElementsPositions(appState) {
     // get the list of all drill down nodes
     const treeState = appState.getIn(["tree"]);
-    
+
     // initialize with the root
-    let nodePositions = List([Map({
-        "kpiId": getRootKPI(appState),
-        "style": getInitialPosition()
-    })]);
+    let nodePositions = List([
+        Map({
+            "kpiId": getRootKPI(appState),
+            "style": getInitialPosition()
+        })
+    ]);
 
     let connectorPositions = List();
-    
+
     // base case, list is empty, show only root
     if (treeState.size === 0) {
         return Map({
@@ -43,9 +44,9 @@ export function getElementsPositions(appState) {
                 right = Math.max(right, nodePosition.getIn(["style", "left"]) + NODEWIDTH);
                 nodePositions = nodePositions.push(nodePosition);
                 // insert position of each connector children
-                connPos = connPos.update("children", children => 
+                connPos = connPos.update("children", children =>
                     children.withMutations(children => children.push(Map({
-                        "key": kpiId, 
+                        "key": kpiId,
                         "style": Map({"top": childrenIndex * (NODEHEIGHT + NODEVSPACING - 1), "width": NODEHSPACING / 2, "left": -1})
                     })))
                 );
@@ -75,11 +76,10 @@ export function getElementsPositions(appState) {
 
     function computeConnPos(kpiId, numSiblings, parentPosition) {
         const height = ((numSiblings * NODEHEIGHT) + ((numSiblings - 1) * NODEVSPACING));
-        const topMost = ((parentPosition.get("top") + NODEHEIGHT / 2) - (height / 2));
         return Map({
             "key": kpiId,
             "style": Map({"top": ((parentPosition.get("top") + NODEHEIGHT / 2) - (height / 2) + NODEHEIGHT/2), "left": parentPosition.get("left") + NODEWIDTH}),
-            "parent": Map({"top": height/2 - NODEHEIGHT/2, "width": NODEHSPACING / 2}),
+            "parent": Map({"top": height / 2 - NODEHEIGHT / 2, "width": NODEHSPACING / 2}),
             "row": Map({"height": height - NODEHEIGHT}),
             "children": List()
         });
@@ -88,10 +88,10 @@ export function getElementsPositions(appState) {
     function applyOffset(positions, min) {
         return positions.map(function(p) {
             return p.updateIn(["style", "top"], function(top) {
-                const offset = min < MINTOP ? (-1*min)+MINTOP : 0;
+                const offset = min < MINTOP ? (-1 * min) + MINTOP : 0;
                 return top + offset;
             });
-        });        
+        });
     }
 
 }
@@ -118,7 +118,7 @@ export function getNewTreeState(kpiId, treeState, appState) {
     return newTreeState;
 }
 
-export function getInitialPosition(appState) {
+export function getInitialPosition() {
     // TODO: calculate this correctly
     return Map({left: MINLEFT, top: 200});
 }

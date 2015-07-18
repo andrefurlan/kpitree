@@ -10,7 +10,7 @@ export default class NodeActions {
     drillNode(kpiId) {
         const state = this._appState.get();
         const treeState = state.get("tree");
-        
+
         const newTreeState = getNewTreeState(kpiId, treeState, this._appState);
 
         // use cursors, only set the specific part of the state
@@ -19,3 +19,4 @@ export default class NodeActions {
 
     }
 }
+

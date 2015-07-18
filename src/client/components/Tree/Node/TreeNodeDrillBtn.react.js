@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatButton, FontIcon, Styles } from "material-ui";
+import { FlatButton, FontIcon } from "material-ui";
 
 export default class TreeNodeDrillBtn extends React.Component {
     handleClick() {
@@ -20,14 +20,21 @@ export default class TreeNodeDrillBtn extends React.Component {
         };
     }
     render() {
-        var symbol = ">";
-        var styles = this.getStyles();
+        const styles = this.getStyles();
         return (
             <FlatButton
-                style={ styles.button }
-                onClick={ this.handleClick.bind(this) } >
-                <FontIcon style={ styles.icon } className="material-icons">chevron_right</FontIcon>
+                onClick={ this.handleClick.bind(this) }
+                style={ styles.button }>
+                <FontIcon
+                    className="material-icons"
+                    style={ styles.icon }> chevron_right
+                </FontIcon>
             </FlatButton>
         );
     }
 }
+
+TreeNodeDrillBtn.propTypes = {
+    actions: React.PropTypes.object.required,
+    kpiId: React.PropTypes.string.required
+};

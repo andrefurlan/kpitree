@@ -1,15 +1,15 @@
+/*eslint no-unused-vars:0*/
 import React from "react";
-import Router from "react-router";
-import { DefaultRoute, Link, Route, Redirect, RouteHandler } from "react-router";
+
+import { DefaultRoute, Route } from "react-router";
 
 import Master from "./master.react.js";
 import Home from "./components/HomePage/home.react.js";
 import Demo from "./components/Tree/Demo.react.js";
 
-
 export const routes = (
-    <Route name="root" path="/" handler={Master}>
-    	<DefaultRoute name="home" handler={Home} />
-    	<Route name="demo" handler={Demo} />
+    <Route handler={Master} name="root" path="/">
+        <DefaultRoute handler={Home} name="home" />
+        <Route handler={Demo} name="demo" />
     </Route>
 );

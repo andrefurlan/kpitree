@@ -1,4 +1,4 @@
-import immutable from "immutable";
+"use strict";
 
 export default function() {
     return {

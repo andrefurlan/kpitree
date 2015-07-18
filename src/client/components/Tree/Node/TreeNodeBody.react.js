@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatButton, FontIcon, Styles } from "material-ui";
+import { FlatButton, FontIcon } from "material-ui";
 
 class TreeNodeBody extends React.Component {
 
@@ -68,7 +68,10 @@ class TreeNodeBody extends React.Component {
                         <span> { this.props.actualValue } </span>
                     </div>
                     <FlatButton style={ styles.button } >
-                        <FontIcon style={ styles.icon } className="material-icons">trending_up</FontIcon>
+                        <FontIcon
+                            className="material-icons"
+                            style={ styles.icon }> trending_up
+                        </FontIcon>
                     </FlatButton>
                 </div>
                 <div style={ styles.nodeBodyRow }>
@@ -84,5 +87,15 @@ class TreeNodeBody extends React.Component {
         );
     }
 }
+
+TreeNodeBody.propTypes = {
+    actions: React.PropTypes.object.required,
+    actualValue: React.propTypes.string,
+    deltaValue: React.propTypes.string,
+    flagColor: React.PropTypes.string,
+    kpiId: React.PropTypes.string.required,
+    kpiName: React.propTypes.string,
+    targetValue: React.propTypes.string
+};
 
 export default TreeNodeBody;

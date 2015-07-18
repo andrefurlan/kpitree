@@ -3,7 +3,7 @@ import TreeNodeHeader from "./TreeNodeHeader.react";
 import TreeNodeBody from "./TreeNodeBody.react";
 import * as helpers from "./TreeNode.helpers";
 
-import { NODEWIDTH } from "../Tree.constants.js";
+import {NODEWIDTH} from "../Tree.constants.js";
 
 //TODO: add this css   color: rgba(0, 0, 0, 0.6); background-color: rgba(255, 255, 255, 0.2)
 //      when node is not open. It looks pretty cool
@@ -29,19 +29,26 @@ class TreeNode extends React.Component {
         const nodeStyle = this.props.position.merge(styles.node).toJS();
         return (
             <div className="TreeNode" style={nodeStyle}>
-                <TreeNodeHeader 
-                    kpiId={ this.props.kpiId }
-                    kpiName={ helpers.getKpiName(this.props.data) }
-                    actions={ this.props.actions }/>
-                <TreeNodeBody
+                <TreeNodeHeader
+                    actions={this.props.actions}
                     kpiId={this.props.kpiId}
-                    targetValue={helpers.getTargetValueString(this.props.data)}
+                    kpiName={helpers.getKpiName(this.props.data)} />
+                <TreeNodeBody
                     actualValue={helpers.getActualValueString(this.props.data)}
                     deltaValue={helpers.getDelta(this.props.data)}
-                    flagColor={helpers.getFlagColor(this.props.data)}/>
+                    flagColor={helpers.getFlagColor(this.props.data)}
+                    kpiId={this.props.kpiId}
+                    targetValue={helpers.getTargetValueString(this.props.data)} />
             </div>
         );
     }
 }
+
+TreeNode.propTypes = {
+    actions: React.PropTypes.object.required,
+    data: React.propTypes.object,
+    kpiId: React.PropTypes.string.required,
+    position: React.propTypes.object
+};
 
 export default TreeNode;

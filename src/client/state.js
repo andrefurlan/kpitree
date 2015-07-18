@@ -8,8 +8,8 @@ export default class State {
         this._callback = callback;
     }
 
-    set(state, path?) {
-        if (this._state === state) return;
+    set(state) {
+        if (this._state === state) { return; }
         // Previous state if useful for debugging global app state diff.
         // It's easy with: https://github.com/intelie/immutable-js-diff
         this._previousState = this._state;
@@ -35,10 +35,12 @@ export default class State {
 
     cursor(path: Array<string>) {
         return (arg) => {
-            if (!arg)
+            if (!arg) {
                 return this._state.getIn(path);
-            if (Array.isArray(arg))
+            }
+            if (Array.isArray(arg)) {
                 return this._state.getIn(path.concat(arg));
+            }
             this.set(this._state.updateIn(path, arg), path);
         };
     }

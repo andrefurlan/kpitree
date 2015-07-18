@@ -1,12 +1,10 @@
 import React from "react";
 
-const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
-import { Toolbar, ToolbarGroup, Styles } from "material-ui";
+import { Styles } from "material-ui";
 
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
-import { NODEWIDTH, MINBOTTOM, MINTOP, MINRIGHT, MINLEFT } from "./Tree.constants.js";
+import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants.js";
 
 import PeriodPicker from "../PeriodPicker/PeriodPicker.react";
 import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
@@ -58,7 +56,7 @@ class KpiTree extends React.Component {
             "connectorRow": {
                 borderLeft: "solid 1px #d9d9d9"
             }
-        }
+        };
     }
 
     render() {
@@ -66,7 +64,7 @@ class KpiTree extends React.Component {
         // the tree state is just a array of deployed kpis
         const positions = getElementsPositions(appState);
         const nodeActions = new NodeActions(appState);
-        
+
         const periodPickerActions = new PeriodPickerActions(appState);
         const periodPickerState = appState.getIn(["periodPicker"]);
 
@@ -78,10 +76,9 @@ class KpiTree extends React.Component {
         return (
             <div ref="demo" style={ styles.demo }>
                 <PeriodPicker
-                    ref="PeriodPicker"
                     actions={ periodPickerActions }
-                    state={ periodPickerState }>
-                </PeriodPicker>
+                    ref="PeriodPicker"
+                    state={ periodPickerState } />
                 <div ref="KPITreeContainer" style={ styles.KPITreeContainer }>
                     <div style={ styles.scrollContainer }>
                         <div ref="KPITree" style={ styles.KPITree }>
@@ -90,28 +87,29 @@ class KpiTree extends React.Component {
                                 const position = node.get("style");
                                 const kpiData = getKPIData(kpiId, appState, true);
 
-                                return <TreeNode
+                                return (<TreeNode
                                     actions = {nodeActions}
                                     appState = {appState}
                                     data = {kpiData}
                                     key = {kpiId}
                                     kpiId = {kpiId}
-                                    position = {position}/>;
+                                    position = {position}/>
+                                );
                             })}
 
                             {positions.get("connector").map((con) => {
                                 const connectorStyle = con.get("style").merge(styles.connector).toJS();
                                 const parentConStyle = con.get("parent").merge(styles.connectorParent).toJS();
                                 const rowConStyle = con.get("row").merge(styles.connectorRow).toJS();
-                                return <div className="connector" key={con.get("kpiId")} style={ connectorStyle }>
-                                    <div className="connector-parent" style={ parentConStyle }></div>
-                                    <div className="connector-children-row" style={ rowConStyle }>
+                                return (<div key={con.get("kpiId")} style={ connectorStyle }>
+                                    <div style={ parentConStyle } />
+                                    <div style={ rowConStyle }>
                                         {con.get("children").map((c) => {
                                             const childrenConStyle = c.get("style").merge(styles.connectorChildren).toJS();
-                                            return <div className="connector-children" key={c.get("key")} style={ childrenConStyle }></div>
+                                            return (<div key={ c.get("key") } style={ childrenConStyle } />);
                                         })}
                                     </div>
-                                </div>
+                                </div>);
                             })}
                         </div>
                     </div>
@@ -120,5 +118,9 @@ class KpiTree extends React.Component {
         );
     }
 }
+
+KpiTree.propTypes = {
+    appState: React.PropTypes.object.required
+};
 
 export default KpiTree;

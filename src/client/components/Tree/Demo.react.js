@@ -1,6 +1,4 @@
 import React from "react";
-import { RouteHandler } from "react-router";
-import { Styles } from "material-ui";
 
 import State from "../../state";
 import initialState from "../../initialStateWithFakeData";

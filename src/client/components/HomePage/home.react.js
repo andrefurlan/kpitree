@@ -16,7 +16,7 @@ class Home extends React.Component {
             description: {
                 paddingTop: "30",
                 paddingBottom: "50",
-                backgroundColor: Styles.Colors.amber500,
+                backgroundColor: Styles.Colors.amber500
             },
             button: {
                 marginTop: "100",
@@ -27,7 +27,7 @@ class Home extends React.Component {
 
     render() {
         const style = this.getStyles();
-        const clickHandle = function(e) {
+        const clickHandle = function() {
             this.context.router.transitionTo("demo");
         };
         return (
@@ -44,12 +44,12 @@ class Home extends React.Component {
                     </p>
                 </div>
             </div>
-        );      
+        );
     }
 }
 
 Home.contextTypes = {
     router: React.PropTypes.func
-}
+};
 
 export default Home;

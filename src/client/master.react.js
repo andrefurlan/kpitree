@@ -1,6 +1,6 @@
 import React from "react";
 import { RouteHandler } from "react-router";
-import { AppBar, AppCanvas, LeftNav, RaisedButton, Styles } from "material-ui";
+import { AppBar, AppCanvas, LeftNav, Styles } from "material-ui";
 
 import './uglyTheme.css';
 
@@ -23,7 +23,7 @@ class Master extends React.Component {
     getChildContext() {
         return {
             muiTheme: ThemeManager.getCurrentTheme()
-        }
+        };
     }
 
     componentWillMount() {
@@ -38,8 +38,8 @@ class Master extends React.Component {
     render() {
         const style = this.getStyles();
         const menuItems = [
-            { route: 'home', text: 'Home' },
-            { route: 'demo', text: 'Start demo' }
+            { route: "home", text: "Home" },
+            { route: "demo", text: "Start demo" }
         ];
         const selectedIndex = this._getSelectedIndex.bind(this)(menuItems);
         return (
@@ -50,11 +50,11 @@ class Master extends React.Component {
                     title="KPI Tree"
                     zDepth={0} />
                 <LeftNav
-                    ref="leftNav"
                     docked={ false }
                     menuItems={ menuItems }
-                    selectedIndex={selectedIndex}
-                    onChange={ this._onLeftNavChange.bind(this) } />
+                    onChange={ this._onLeftNavChange.bind(this) }
+                    ref="leftNav"
+                    selectedIndex={selectedIndex} />
                 <RouteHandler />
             </AppCanvas>
         );

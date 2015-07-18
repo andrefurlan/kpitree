@@ -35,10 +35,10 @@ export function getDelta(data) {
     const actual = getActualValue(data);
     const target = getTargetValue(data);
     let delta = 0;
-    if (target === 0) return "-";
+    if (target === 0) {return "-";}
     delta = actual / target -1;
-    if (delta > 5) return  500.0.toFixed(1) + "%" + "+";
-    if (delta < -5) return 500.0.toFixed(1) + "%" + "-";
+    if (delta > 5) {return 500.0.toFixed(1) + "%" + "+";}
+    if (delta < -5) {return 500.0.toFixed(1) + "%" + "-";}
     return (delta * 100).toFixed(1) + "%";
 }
 
@@ -55,7 +55,7 @@ export function calculateScore(actual, target, orientation) {
                 return deviation;
             }
         } else if (target < 0) {
-             deviation = dev(actual, target, 2);
+            deviation = dev(actual, target, 2);
             if (deviation > 1.20) {
                 return 1.2;
             } else if (deviation < 0.8) {
@@ -76,9 +76,9 @@ export function calculateScore(actual, target, orientation) {
         if (target > 0) {
             deviation = dev(actual, target, 3);
             if (deviation > 1.20) {
-               return 1.2; 
+                return 1.2;
             } else if (deviation < 0.8) {
-                    return 0;
+                return 0;
             } else {
                 return deviation;
             }
@@ -91,7 +91,7 @@ export function calculateScore(actual, target, orientation) {
             } else {
                 return deviation;
             }
-        } else if (target === 0 && actual  !== 0) {
+        } else if (target === 0 && actual !== 0) {
             if (actual > 0) {
                 return 0;
             } else {
@@ -101,25 +101,28 @@ export function calculateScore(actual, target, orientation) {
             return 1;
         }
     } else {
+        return 1;
         // todo: implement interval
     }
     return 1;
 
     function dev(actual, target, caseNumber) {
+        let result = 0;
         switch (caseNumber) {
             case 1:
-                return actual/target;
+                result = actual / target;
                 break;
             case 2:
-                return (actual / target - 2) * -1;
+                result = (actual / target - 2) * -1;
                 break;
             case 3:
-                return (actual / target - 1) * -1 + 1;
+                result = (actual / target - 1) * -1 + 1;
                 break;
             case 4:
-                return (((actual / target - 1) * -1 + 1) - 2) * -1;
+                result = (((actual / target - 1) * -1 + 1) - 2) * -1;
                 break;
         }
+        return result;
     }
 }
 

@@ -3,14 +3,16 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require("webpack");
 var path = require("path");
 
-
 var loaders = {
     'css': '',
     'less': '!less-loader'
 };
 
+
+// TODO: Implement production mode
 module.exports = function(isDevelopment) {
 
+    // TODO: refactor this function
     function stylesLoaders() {
         return Object.keys(loaders).map(function(ext) {
             var prefix = 'css-loader!autoprefixer-loader?browsers=last 2 version';

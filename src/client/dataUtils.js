@@ -6,10 +6,6 @@
  *  app state.
  */
 
-/*
- *  
- */
-
 export function getKPIData(kpiId, appState, hasValues) {
     const state = appState.get();
     const kpi = state.getIn(["data", "kpis"]).filter((kpi) => {

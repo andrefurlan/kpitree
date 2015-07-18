@@ -1,4 +1,3 @@
-import immutable from "immutable";
 
 export default function() {
     return {

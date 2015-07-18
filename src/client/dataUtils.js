@@ -16,7 +16,8 @@ export function getKPIData(kpiId, appState, hasValues) {
         return kpi.get("kpiId") === kpiId;
     }).get(0);
     if (hasValues) {
-        const data = kpi.set("values", kpi.getIn(["dataset", state.getIn(["periodPicker", "period"])]));
+        const periodCode = state.getIn(["periodPicker", "year"]) + state.getIn(["periodPicker", "month"]);
+        const data = kpi.set("values", kpi.getIn(["dataset", periodCode]));
         return data.delete("dataset");
     } else {
         return kpi;

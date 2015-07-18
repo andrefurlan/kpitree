@@ -6,17 +6,29 @@ export function getKpiName(data) {
 
 export function getTargetValue(data) {
     //TODO: add currency and number formatting
-    return data.getIn(["values", "target"]);
+    return Number(data.getIn(["values", "target"]));
 }
 
 export function getActualValue(data) {
     //TODO: add currency and number formatting
-    return data.getIn(["values", "actual"]);;
+    return Number(data.getIn(["values", "actual"]));
+}
+
+export function getTargetValueString(data) {
+    //TODO: add currency and number formatting
+    const targetValue = data.getIn(["values", "target"]);
+    return targetValue ? targetValue.toLocaleString() : "-";
+}
+
+export function getActualValueString(data) {
+    //TODO: add currency and number formatting
+    const targetValue = data.getIn(["values", "actual"]);
+    return targetValue ? targetValue.toLocaleString() : "-";
 }
 
 export function getOrientation(data) {
     //stub
-    return "up";
+    return data.get("orientation") || "up";
 }
 
 export function getDelta(data) {

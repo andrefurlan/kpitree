@@ -41,14 +41,22 @@ class KpiTree extends React.Component {
                 width: "110%",
                 position: "relative"
             },
-            "TreeNode": {
-                width: NODEWIDTH,
+            "connector": {
                 position: "absolute",
-                transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                WebkitTapHighlightColor: "rgba(0,0,0,0)",
-                boxShadow: "0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)",
-                borderRadius: "2",
-                backgroundColor: "white"
+                display: "flex"
+            },
+            "connectorParent": {
+                borderTop: "solid 1px #d9d9d9",
+                position: "relative",
+                height: 1
+            },
+            "connectorChildren": {
+                borderBottom: "solid 1px #d9d9d9",
+                height: 1,
+                position: "relative"
+            },
+            "connectorRow": {
+                borderLeft: "solid 1px #d9d9d9"
             }
         }
     }
@@ -79,7 +87,7 @@ class KpiTree extends React.Component {
                         <div ref="KPITree" style={ styles.KPITree }>
                             {positions.get("node").map((node) => {
                                 const kpiId = node.get("kpiId");
-                                const style = node.get("style").merge(styles.TreeNode).toJS();
+                                const position = node.get("style");
                                 const kpiData = getKPIData(kpiId, appState, true);
 
                                 return <TreeNode
@@ -88,15 +96,19 @@ class KpiTree extends React.Component {
                                     data = {kpiData}
                                     key = {kpiId}
                                     kpiId = {kpiId}
-                                    style = {style}/>;
+                                    position = {position}/>;
                             })}
 
                             {positions.get("connector").map((con) => {
-                                return <div className="connector" key={con.get("kpiId")} style={con.get("style").toJS()}>
-                                    <div className="connector-parent" style={con.get("parent").toJS()}></div>
-                                    <div className="connector-children-row" style={con.get("row").toJS()}>
+                                const connectorStyle = con.get("style").merge(styles.connector).toJS();
+                                const parentConStyle = con.get("parent").merge(styles.connectorParent).toJS();
+                                const rowConStyle = con.get("row").merge(styles.connectorRow).toJS();
+                                return <div className="connector" key={con.get("kpiId")} style={ connectorStyle }>
+                                    <div className="connector-parent" style={ parentConStyle }></div>
+                                    <div className="connector-children-row" style={ rowConStyle }>
                                         {con.get("children").map((c) => {
-                                            return <div className="connector-children" key={c.get("key")} style={c.get("style").toJS()}></div>
+                                            const childrenConStyle = c.get("style").merge(styles.connectorChildren).toJS();
+                                            return <div className="connector-children" key={c.get("key")} style={ childrenConStyle }></div>
                                         })}
                                     </div>
                                 </div>

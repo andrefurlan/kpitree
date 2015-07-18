@@ -4,8 +4,12 @@ import { DropDownMenu, Styles } from "material-ui";
 class PeriodPicker extends React.Component {
 
 
-    onIndexChange(e, key, payload) {
-        this.props.actions.saveEdit(payload.code, payload.payload-1);
+    onYearIndexChange(e, key, payload) {
+        this.props.actions.changeYear(payload.code, payload.payload);
+    }
+
+    onMonthIndexChange(e, key, payload) {
+        this.props.actions.changeMonth(payload.code, payload.payload);
     }
 
     getStyles() {
@@ -25,22 +29,37 @@ class PeriodPicker extends React.Component {
 
     render() {
 
-        const filterOptions = [
-            { payload: "1", text: "05/2005", code: "200505" },
-            { payload: "2", text: "06/2005", code: "200506" },
-            { payload: "3", text: "07/2005", code: "200507" }
+        const yearOptions = [
+            { payload: "0", text: "2005", code: "2005" },
+            { payload: "1", text: "2006", code: "2006" }
         ];
 
-        const selectedIndex = Number(this.props.state.get("index"));
+        const monthOptions = [
+            { payload: "0", text: "May",  code: "05" },
+            { payload: "1", text: "June", code: "06" },
+            { payload: "2", text: "July", code: "07" },
+            { payload: "3", text: "August", code: "08" },
+            { payload: "4", text: "September", code: "09" }
+        ];
+
+        const selectedYearIndex = Number(this.props.state.get("indexYear"));
+        const selectedMonthIndex = Number(this.props.state.get("indexMonth"));
         const styles = this.getStyles();
         return (
             <div style={ styles.toolbar }>
                 <DropDownMenu
                     autoWidth={ false }
                     style={ styles.menu }
-                    menuItems={ filterOptions }
-                    onChange={ this.onIndexChange.bind(this) }
-                    selectedIndex={ selectedIndex } >
+                    menuItems={ yearOptions }
+                    onChange={ this.onYearIndexChange.bind(this) }
+                    selectedIndex={ selectedYearIndex } >
+                </DropDownMenu>
+                <DropDownMenu
+                    autoWidth={ false }
+                    style={ styles.menu }
+                    menuItems={ monthOptions }
+                    onChange={ this.onMonthIndexChange.bind(this) }
+                    selectedIndex={ selectedMonthIndex } >
                 </DropDownMenu>
             </div>
         );

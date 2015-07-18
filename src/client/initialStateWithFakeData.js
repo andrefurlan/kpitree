@@ -4,8 +4,10 @@ export default function() {
     return {
         tree: [],
         periodPicker: {
-            period: "200505",
-            index: "0"
+            month: "05",  // this is not necessary, eventually it should be only the index
+            year: "2005",
+            indexMonth: "0",
+            indexYear: "0"
         },
         data: {
             user: "andre",
@@ -37,7 +39,7 @@ export default function() {
                     children: ["4", "5", "31", "32", "33", "34"],
                     dataset: {
                         "200505": {
-                                actual: 100000,
+                                actual: 90000,
                                 target: 100000
                             },
                         "200506": {
@@ -63,7 +65,7 @@ export default function() {
                     }
                 }, {
                     kpiId: "4",
-                    name: "kpi4",
+                    name: "kpi4 with a very long name",
                     unit: "CND",
                     orientation: "up",
                     children: ["6", "7"],
@@ -97,7 +99,7 @@ export default function() {
                     kpiId: "6",
                     name: "kpi6",
                     unit: "",
-                    orientation: "up",
+                    orientation: "down",
                     children: ["13"],
                     dataset: {
                         "200505": {
@@ -160,6 +162,7 @@ export default function() {
                     kpiId: "10",
                     name: "kpi10",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -175,6 +178,7 @@ export default function() {
                     kpiId: "11",
                     name: "kpi11",
                     unit: "",
+                    orientation: "down",
                     children: [],
                     dataset: {
                         "200505": {
@@ -190,6 +194,7 @@ export default function() {
                     kpiId: "12",
                     name: "kpi12",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -205,6 +210,7 @@ export default function() {
                     kpiId: "13",
                     name: "kpi13",
                     unit: "",
+                    orientation: "down",
                     children: ["14", "15"],
                     dataset: {
                         "200505": {
@@ -220,6 +226,7 @@ export default function() {
                     kpiId: "14",
                     name: "kpi14",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -235,6 +242,7 @@ export default function() {
                     kpiId: "15",
                     name: "kpi15",
                     unit: "",
+                    orientation: "up",
                     children: ["16", "17", "18", "19"],
                     dataset: {
                         "200505": {
@@ -250,6 +258,7 @@ export default function() {
                     kpiId: "16",
                     name: "kpi16",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -265,6 +274,7 @@ export default function() {
                     kpiId: "17",
                     name: "kpi17",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -280,11 +290,12 @@ export default function() {
                     kpiId: "18",
                     name: "kpi18",
                     unit: "",
+                    orientation: "down",
                     children: ["20", "21", "22"],
                     dataset: {
                         "200505": {
                             actual: 25,
-                            target: 15
+                            target: 10
                         },
                         "200506": {
                             actual: 15,
@@ -295,6 +306,7 @@ export default function() {
                     kpiId: "19",
                     name: "kpi19",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -310,6 +322,7 @@ export default function() {
                     kpiId: "20",
                     name: "kpi20",
                     unit: "",
+                    orientation: "up",
                     children: ["23", "24", "25", "26"],
                     dataset: {
                         "200505": {
@@ -325,6 +338,7 @@ export default function() {
                     kpiId: "21",
                     name: "kpi21",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -340,6 +354,7 @@ export default function() {
                     kpiId: "22",
                     name: "kpi22",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -355,6 +370,7 @@ export default function() {
                     kpiId: "23",
                     name: "kpi23",
                     unit: "",
+                    orientation: "up",
                     children: ["27", "28", "29", "30"],
                     dataset: {
                         "200505": {
@@ -370,6 +386,7 @@ export default function() {
                     kpiId: "24",
                     name: "kpi24",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -385,6 +402,7 @@ export default function() {
                     kpiId: "25",
                     name: "kpi25",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -400,6 +418,7 @@ export default function() {
                     kpiId: "26",
                     name: "kpi26",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -415,6 +434,7 @@ export default function() {
                     kpiId: "27",
                     name: "kpi27",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -430,6 +450,7 @@ export default function() {
                     kpiId: "28",
                     name: "kpi28",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -445,6 +466,7 @@ export default function() {
                     kpiId: "29",
                     name: "kpi29",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -460,6 +482,7 @@ export default function() {
                     kpiId: "30",
                     name: "kpi30",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -475,6 +498,7 @@ export default function() {
                     kpiId: "31",
                     name: "kpi31",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -490,6 +514,7 @@ export default function() {
                     kpiId: "32",
                     name: "kpi32",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -505,6 +530,7 @@ export default function() {
                     kpiId: "33",
                     name: "kpi33",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {
@@ -520,6 +546,7 @@ export default function() {
                     kpiId: "34",
                     name: "kpi34",
                     unit: "",
+                    orientation: "up",
                     children: [],
                     dataset: {
                         "200505": {

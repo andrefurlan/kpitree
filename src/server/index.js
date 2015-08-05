@@ -1,8 +1,8 @@
-let express = require('express');
-let app = express();
-let server = require('http').createServer(app);
-let port = process.env.PORT || 8000;
-let home = require("./home");
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var port = process.env.PORT || 8000;
+var home = require("./home");
 
 server.listen(port, function () {
     console.log('Server listening at port %d', port);

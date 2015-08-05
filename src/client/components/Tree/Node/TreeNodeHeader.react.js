@@ -44,7 +44,7 @@ class TreeNodeHeader extends React.Component {
 TreeNodeHeader.propTypes = {
     actions: React.PropTypes.object.required,
     kpiId: React.PropTypes.string.required,
-    kpiName: React.propTypes.string
+    kpiName: React.PropTypes.string
 };
 
 export default TreeNodeHeader;

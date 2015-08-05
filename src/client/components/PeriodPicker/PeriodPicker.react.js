@@ -93,9 +93,9 @@ class PeriodPicker extends React.Component {
                     menuItemStyle={ styles.menuItem }
                     menuItems={ yearOptions }
                     onChange={ this.onYearIndexChange.bind(this) }
-                    selectedIndex={ selectedYearIndex } />
+                    selectedIndex={ selectedYearIndex }
                     style={ styles.menuYear }
-                    underlineStyle={ styles.underline }
+                    underlineStyle={ styles.underline } />
                 <DropDownMenu
                     autoWidth={ false }
                     iconStyle={ styles.icon }
@@ -103,9 +103,9 @@ class PeriodPicker extends React.Component {
                     menuItemStyle={ styles.menuItem }
                     menuItems={ monthOptions }
                     onChange={ this.onMonthIndexChange.bind(this) }
-                    selectedIndex={ selectedMonthIndex } />
+                    selectedIndex={ selectedMonthIndex }
                     style={ styles.menuMonth }
-                    underlineStyle={ styles.underlineMonth }
+                    underlineStyle={ styles.underlineMonth } />
             </div>
         );
     }

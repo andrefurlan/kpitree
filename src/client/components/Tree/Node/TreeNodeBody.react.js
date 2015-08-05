@@ -90,12 +90,12 @@ class TreeNodeBody extends React.Component {
 
 TreeNodeBody.propTypes = {
     actions: React.PropTypes.object.required,
-    actualValue: React.propTypes.string,
-    deltaValue: React.propTypes.string,
+    actualValue: React.PropTypes.string,
+    deltaValue: React.PropTypes.string,
     flagColor: React.PropTypes.string,
     kpiId: React.PropTypes.string.required,
-    kpiName: React.propTypes.string,
-    targetValue: React.propTypes.string
+    kpiName: React.PropTypes.string,
+    targetValue: React.PropTypes.string
 };
 
 export default TreeNodeBody;

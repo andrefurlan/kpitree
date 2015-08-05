@@ -46,9 +46,9 @@ class TreeNode extends React.Component {
 
 TreeNode.propTypes = {
     actions: React.PropTypes.object.required,
-    data: React.propTypes.object,
+    data: React.PropTypes.object,
     kpiId: React.PropTypes.string.required,
-    position: React.propTypes.object
+    position: React.PropTypes.object
 };
 
 export default TreeNode;

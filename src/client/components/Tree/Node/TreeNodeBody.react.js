@@ -1,4 +1,5 @@
 import React from "react";
+
 import { FlatButton, FontIcon } from "material-ui";
 
 class TreeNodeBody extends React.Component {
@@ -89,11 +90,10 @@ class TreeNodeBody extends React.Component {
 }
 
 TreeNodeBody.propTypes = {
-    actions: React.PropTypes.object.required,
     actualValue: React.PropTypes.string,
     deltaValue: React.PropTypes.string,
     flagColor: React.PropTypes.string,
-    kpiId: React.PropTypes.string.required,
+    kpiId: React.PropTypes.string.isRequired,
     kpiName: React.PropTypes.string,
     targetValue: React.PropTypes.string
 };

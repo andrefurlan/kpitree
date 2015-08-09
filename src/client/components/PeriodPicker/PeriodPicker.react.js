@@ -1,4 +1,9 @@
 import React from "react";
+
+// for props validation
+import PeriodPickerActions from "./PeriodPicker.actions.js";
+import immutable from "immutable";
+
 import { DropDownMenu, Styles } from "material-ui";
 
 class PeriodPicker extends React.Component {
@@ -112,8 +117,8 @@ class PeriodPicker extends React.Component {
 }
 
 PeriodPicker.propTypes = {
-    actions: React.PropTypes.object.required,
-    state: React.PropTypes.object.required
+    actions: React.PropTypes.instanceOf(PeriodPickerActions).isRequired,
+    state: React.PropTypes.instanceOf(immutable.Map).isRequired
 };
 
 export default PeriodPicker;

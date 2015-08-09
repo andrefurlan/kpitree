@@ -1,4 +1,8 @@
 import React from "react";
+
+// for props validation
+import NodeActions from "./TreeNode.actions.js";
+
 import { FlatButton, FontIcon } from "material-ui";
 
 export default class TreeNodeDrillBtn extends React.Component {
@@ -35,6 +39,6 @@ export default class TreeNodeDrillBtn extends React.Component {
 }
 
 TreeNodeDrillBtn.propTypes = {
-    actions: React.PropTypes.object.required,
-    kpiId: React.PropTypes.string.required
+    actions: React.PropTypes.instanceOf(NodeActions).isRequired,
+    kpiId: React.PropTypes.string.isRequired
 };

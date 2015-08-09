@@ -1,16 +1,19 @@
 import React from "react";
 
+// for props validation
+import State from "../../State.js";
+
 import { Styles } from "material-ui";
 
-import TreeNode from "./Node/TreeNode.react";
-import NodeActions from "./Node/TreeNode.actions";
-import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants";
+import TreeNode from "./Node/TreeNode.react.js";
+import NodeActions from "./Node/TreeNode.actions.js";
+import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants.js";
 
-import PeriodPicker from "../PeriodPicker/PeriodPicker.react";
-import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
+import PeriodPicker from "../PeriodPicker/PeriodPicker.react.js";
+import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions.js";
 
-import { getElementsPositions } from "./Tree.helpers";
-import { getKPIData } from "../../DataHelpers";
+import { getElementsPositions } from "./Tree.helpers.js";
+import { getKPIData } from "../../DataHelpers.js";
 
 class KpiTree extends React.Component {
 
@@ -119,7 +122,7 @@ class KpiTree extends React.Component {
 }
 
 KpiTree.propTypes = {
-    appState: React.PropTypes.object.required
+    appState: React.PropTypes.instanceOf(State).isRequired
 };
 
 export default KpiTree;

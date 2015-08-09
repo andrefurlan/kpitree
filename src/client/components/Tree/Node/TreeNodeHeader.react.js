@@ -1,5 +1,9 @@
 import React from "react";
-import TreeNodeDrillBtn from "./TreeNodeDrillBtn.react";
+
+// for props validation
+import NodeActions from "./TreeNode.actions.js";
+
+import TreeNodeDrillBtn from "./TreeNodeDrillBtn.react.js";
 
 class TreeNodeHeader extends React.Component {
 
@@ -42,8 +46,8 @@ class TreeNodeHeader extends React.Component {
 }
 
 TreeNodeHeader.propTypes = {
-    actions: React.PropTypes.object.required,
-    kpiId: React.PropTypes.string.required,
+    actions: React.PropTypes.instanceOf(NodeActions).isRequired,
+    kpiId: React.PropTypes.string.isRequired,
     kpiName: React.PropTypes.string
 };
 

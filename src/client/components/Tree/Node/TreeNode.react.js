@@ -1,7 +1,11 @@
 import React from "react";
-import TreeNodeHeader from "./TreeNodeHeader.react";
-import TreeNodeBody from "./TreeNodeBody.react";
-import * as helpers from "./TreeNode.helpers";
+import immutable from 'immutable';
+// for props validation
+import NodeActions from "./TreeNode.actions.js";
+
+import TreeNodeHeader from "./TreeNodeHeader.react.js";
+import TreeNodeBody from "./TreeNodeBody.react.js";
+import * as helpers from "./TreeNode.helpers.js";
 
 import {NODEWIDTH} from "../Tree.constants.js";
 
@@ -45,10 +49,10 @@ class TreeNode extends React.Component {
 }
 
 TreeNode.propTypes = {
-    actions: React.PropTypes.object.required,
-    data: React.PropTypes.object,
-    kpiId: React.PropTypes.string.required,
-    position: React.PropTypes.object
+    actions: React.PropTypes.instanceOf(NodeActions).isRequired,
+    data: React.PropTypes.instanceOf(immutable.Map).isRequired,
+    kpiId: React.PropTypes.string.isRequired,
+    position: React.PropTypes.instanceOf(immutable.Map).isRequired
 };
 
 export default TreeNode;

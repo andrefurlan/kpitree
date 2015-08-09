@@ -2,7 +2,7 @@ import React from "react";
 import Router from "react-router";
 import injectTapEventPlugin from "react-tap-event-plugin";
 
-import { routes } from "./AppRoutes";
+import { routes } from "./AppRoutes.js";
 
 window.React = React;
 

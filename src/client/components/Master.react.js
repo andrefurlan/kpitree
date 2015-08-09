@@ -2,8 +2,8 @@ import React from "react";
 import { RouteHandler } from "react-router";
 import { AppBar, AppCanvas, LeftNav, Styles } from "material-ui";
 
-import State from "../State";
-import initialState from "../InitialStateWithFakeData";
+import State from "../State.js";
+import initialState from "../InitialStateWithFakeData.js";
 
 import '../UglyTheme.css';
 

@@ -1,8 +1,8 @@
 import { Map, List } from "immutable";
 
-import { MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH, 
-    NODEHSPACING, NODEVSPACING } from "./Tree.constants";
-import { getKPIChildren, getRootKPI } from "../../DataHelpers";
+import { MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH,
+    NODEHSPACING, NODEVSPACING } from "./Tree.constants.js";
+import { getKPIChildren, getRootKPI } from "../../DataHelpers.js";
 
 
 export function getElementsPositions(appState) {

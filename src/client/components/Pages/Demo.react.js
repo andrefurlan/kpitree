@@ -1,6 +1,7 @@
 import React from "react";
-
 import Tree from "../Tree/Tree.react.js";
+// for props validation
+import State from "../../State.js";
 
 class Demo extends React.Component {
 
@@ -18,7 +19,7 @@ Demo.contextTypes = {
 };
 
 Demo.propTypes = {
-    appState: React.PropTypes.object.required
+    appState: React.PropTypes.instanceOf(State).isRequired
 };
 
 export default Demo;

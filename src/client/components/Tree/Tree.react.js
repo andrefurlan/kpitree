@@ -4,13 +4,13 @@ import { Styles } from "material-ui";
 
 import TreeNode from "./Node/TreeNode.react";
 import NodeActions from "./Node/TreeNode.actions";
-import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants.js";
+import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants";
 
 import PeriodPicker from "../PeriodPicker/PeriodPicker.react";
 import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions";
 
 import { getElementsPositions } from "./Tree.helpers";
-import { getKPIData } from "../../dataUtils";
+import { getKPIData } from "../../DataHelpers";
 
 class KpiTree extends React.Component {
 

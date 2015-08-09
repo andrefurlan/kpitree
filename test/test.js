@@ -4,7 +4,7 @@ const assert = require("assert");
 import immutable from "immutable";
 
 import initialState from "./initialStateWithFakeData";
-import State from "../src/client/state";
+import State from "../src/client/State";
 
 import * as treeHelpers from "../src/client/components/Tree/Tree.helpers";
 describe("treeHelpers", function() {

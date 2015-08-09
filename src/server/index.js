@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var port = process.env.PORT || 8000;
-var home = require("./home");
+var html = require("./html");
 
 server.listen(port, function () {
     console.log('Server listening at port %d', port);
@@ -11,6 +11,6 @@ server.listen(port, function () {
 // Routing
 app.use('/build', express.static('build'));
 
-app.get("*", function(req, res, next) {
-    res.send(home);
+app.get("*", function(req, res) {
+    res.send(html);
 });

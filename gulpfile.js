@@ -7,7 +7,6 @@ var eslint = require("gulp-eslint");
 var gulp = require("gulp");
 var harmonize = require("harmonize");
 var makeWebpackConfig = require("./webpack.config");
-var runSequence = require("run-sequence");
 var webpackBuild = require("./build");
 var webpackDevServer = require("./devserver");
 var yargs = require("yargs");

@@ -1,9 +1,9 @@
 import React from "react";
 
-import State from "../../state";
-import initialState from "../../initialStateWithFakeData";
+import State from "../../State";
+import initialState from "../../InitialStateWithFakeData";
 
-import Tree from "./Tree.react.js";
+import Tree from "../Tree/Tree.react.js";
 
 class Demo extends React.Component {
 

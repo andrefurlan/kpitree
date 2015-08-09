@@ -2,7 +2,7 @@ import React from "react";
 import { RouteHandler } from "react-router";
 import { AppBar, AppCanvas, LeftNav, Styles } from "material-ui";
 
-import './uglyTheme.css';
+import '../UglyTheme.css';
 
 let ThemeManager = new Styles.ThemeManager();
 
@@ -48,17 +48,18 @@ class Master extends React.Component {
                     onLeftIconButtonTouchTap={ this._onLeftIconButtonTouchTap.bind(this) }
                     style={ style.appBar }
                     title="KPI Tree"
-                    zDepth={0} />
+                    zDepth={ 0 } />
                 <LeftNav
                     docked={ false }
                     menuItems={ menuItems }
                     onChange={ this._onLeftNavChange.bind(this) }
                     ref="leftNav"
-                    selectedIndex={selectedIndex} />
+                    selectedIndex={ selectedIndex } />
                 <RouteHandler />
             </AppCanvas>
         );
     }
+
     _getSelectedIndex(menuItems) {
         let currentItem;
         for (let i = menuItems.length - 1; i >= 0; i--) {

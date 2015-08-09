@@ -2,6 +2,9 @@ import React from "react";
 import { RouteHandler } from "react-router";
 import { AppBar, AppCanvas, LeftNav, Styles } from "material-ui";
 
+import State from "../State";
+import initialState from "../InitialStateWithFakeData";
+
 import '../UglyTheme.css';
 
 let ThemeManager = new Styles.ThemeManager();
@@ -10,6 +13,16 @@ class Master extends React.Component {
 
     constructor() {
         super();
+        this.state = this.getState();
+    }
+
+    update(newState) {
+        this.setState(newState);
+    }
+
+    getState() {
+        const initialAppState = new State(initialState(), this.update.bind(this));
+        return { appState: initialAppState };
     }
 
     getStyles() {
@@ -55,7 +68,7 @@ class Master extends React.Component {
                     onChange={ this._onLeftNavChange.bind(this) }
                     ref="leftNav"
                     selectedIndex={ selectedIndex } />
-                <RouteHandler />
+                <RouteHandler {...this.state} />
             </AppCanvas>
         );
     }

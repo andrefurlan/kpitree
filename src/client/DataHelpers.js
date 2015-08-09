@@ -1,4 +1,4 @@
-/*  This file has util functions for dealing with KPI data.
+/*  This file has helpers functions for dealing with KPI data.
  *  Every time a function need information related to the KPI data,
  *  it should use a function from this file. In the future, when KPI
  *  is in a database, the functions in this file need to make the

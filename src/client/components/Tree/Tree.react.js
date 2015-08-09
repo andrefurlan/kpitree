@@ -3,14 +3,9 @@ import React from "react";
 // for props validation
 import State from "../../State.js";
 
-import { Styles } from "material-ui";
-
 import TreeNode from "./Node/TreeNode.react.js";
 import NodeActions from "./Node/TreeNode.actions.js";
 import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants.js";
-
-import PeriodPicker from "../PeriodPicker/PeriodPicker.react.js";
-import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions.js";
 
 import { getElementsPositions } from "./Tree.helpers.js";
 import { getKPIData } from "../../DataHelpers.js";
@@ -19,15 +14,8 @@ class KpiTree extends React.Component {
 
     getStyles() {
         return {
-            "demo": {
-                height: "100%",
-                width: "100%",
-                paddingTop: "64",
-                backgroundColor: Styles.Colors.grey50,
-                overflow: "auto"
-            },
             "KPITreeContainer": {
-                height: "calc(100% - 56px)",
+                height: "calc(100% - 32px)",
                 width: "100%",
                 overflow: "auto"
             },
@@ -68,20 +56,12 @@ class KpiTree extends React.Component {
         const positions = getElementsPositions(appState);
         const nodeActions = new NodeActions(appState);
 
-        const periodPickerActions = new PeriodPickerActions(appState);
-        const periodPickerState = appState.getIn(["periodPicker"]);
-
         const styles = this.getStyles();
         styles.KPITree.height = (positions.get("bottom") - positions.get("top")) + MINBOTTOM + MINTOP;
         styles.KPITree.width = (positions.get("right") + MINRIGHT);
-        // TODO: period picker
+        // TODO: refactor this urgently!
 
         return (
-            <div ref="demo" style={ styles.demo }>
-                <PeriodPicker
-                    actions={ periodPickerActions }
-                    ref="PeriodPicker"
-                    state={ periodPickerState } />
                 <div ref="KPITreeContainer" style={ styles.KPITreeContainer }>
                     <div style={ styles.scrollContainer }>
                         <div ref="KPITree" style={ styles.KPITree }>
@@ -116,7 +96,6 @@ class KpiTree extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }

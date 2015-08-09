@@ -85,6 +85,7 @@ class PeriodPicker extends React.Component {
             { payload: "11", text: "December", code: "12" }
         ];
 
+        //TODO: change the way to revive the state
         const selectedYearIndex = Number(this.props.state.get("indexYear"));
         const selectedMonthIndex = Number(this.props.state.get("indexMonth"));
         const styles = this.getStyles();

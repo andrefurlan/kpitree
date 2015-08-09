@@ -5,7 +5,7 @@ export default function() {
         periodPicker: {
             month: "05",  // this is not necessary, eventually it should be only the index
             year: "2005",
-            indexMonth: "0",
+            indexMonth: "4",
             indexYear: "0"
         },
         data: {

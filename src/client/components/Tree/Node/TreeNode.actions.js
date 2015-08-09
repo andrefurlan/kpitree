@@ -1,4 +1,4 @@
-import {getNewTreeState} from "../Tree.helpers";
+import { getNewTreeState } from "../Tree.helpers.js";
 
 export default class NodeActions {
 
@@ -8,15 +8,12 @@ export default class NodeActions {
 
     // Invariant: Deployed nodes are ordered
     drillNode(kpiId) {
-        const state = this._appState.get();
-        const treeState = state.get("tree");
+        const state = this._appState;
+        const treeCursor = state.cursor(['tree']);
 
-        const newTreeState = getNewTreeState(kpiId, treeState, this._appState);
-
-        // use cursors, only set the specific part of the state
-        const newState = state.set("tree", newTreeState);
-        this._appState.set(newState);
-
+        treeCursor(treeState => {
+            return getNewTreeState(kpiId, treeState, state);
+        });
     }
 }
 

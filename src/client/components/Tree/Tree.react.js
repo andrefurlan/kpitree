@@ -89,7 +89,6 @@ class KpiTree extends React.Component {
 
                                 return (<TreeNode
                                     actions = {nodeActions}
-                                    appState = {appState}
                                     data = {kpiData}
                                     key = {kpiId}
                                     kpiId = {kpiId}

@@ -3,6 +3,7 @@ import React from "react";
 // for props validation
 import State from "../../State.js";
 
+import Connector from "./Connector.react.js";
 import TreeNode from "./Node/TreeNode.react.js";
 import NodeActions from "./Node/TreeNode.actions.js";
 import { MINBOTTOM, MINTOP, MINRIGHT } from "./Tree.constants.js";
@@ -29,23 +30,6 @@ class KpiTree extends React.Component {
                 height: "110%",
                 width: "110%",
                 position: "relative"
-            },
-            "connector": {
-                position: "absolute",
-                display: "flex"
-            },
-            "connectorParent": {
-                borderTop: "solid 1px #d9d9d9",
-                position: "relative",
-                height: 1
-            },
-            "connectorChildren": {
-                borderBottom: "solid 1px #d9d9d9",
-                height: 1,
-                position: "relative"
-            },
-            "connectorRow": {
-                borderLeft: "solid 1px #d9d9d9"
             }
         };
     }
@@ -70,28 +54,25 @@ class KpiTree extends React.Component {
                                 const position = node.get("style");
                                 const kpiData = getKPIData(kpiId, appState, true);
 
-                                return (<TreeNode
-                                    actions = {nodeActions}
-                                    data = {kpiData}
-                                    key = {kpiId}
-                                    kpiId = {kpiId}
-                                    position = {position}/>
+                                return (
+                                    <TreeNode
+                                        actions = {nodeActions}
+                                        data = {kpiData}
+                                        key = {kpiId}
+                                        kpiId = {kpiId}
+                                        position = {position}/>
                                 );
                             })}
 
                             {positions.get("connector").map((con) => {
-                                const connectorStyle = con.get("style").merge(styles.connector).toJS();
-                                const parentConStyle = con.get("parent").merge(styles.connectorParent).toJS();
-                                const rowConStyle = con.get("row").merge(styles.connectorRow).toJS();
-                                return (<div key={con.get("kpiId")} style={ connectorStyle }>
-                                    <div style={ parentConStyle } />
-                                    <div style={ rowConStyle }>
-                                        {con.get("children").map((c) => {
-                                            const childrenConStyle = c.get("style").merge(styles.connectorChildren).toJS();
-                                            return (<div key={ c.get("key") } style={ childrenConStyle } />);
-                                        })}
-                                    </div>
-                                </div>);
+                                return (
+                                    <Connector
+                                        children={ con.get("children") }
+                                        connectorStyle={ con.get("style") }
+                                        key={ con.get("kpiId") }
+                                        parentConStyle={ con.get("parent") }
+                                        rowConStyle={ con.get("row") } />
+                                );
                             })}
                         </div>
                     </div>

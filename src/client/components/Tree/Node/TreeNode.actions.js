@@ -1,4 +1,4 @@
-import { getNewTreeState } from "../Tree.helpers.js";
+import {getNewTreeState} from "../Tree.helpers.js";
 
 export default class NodeActions {
 

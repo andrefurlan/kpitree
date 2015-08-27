@@ -1,6 +1,6 @@
 import React from "react";
-import { RouteHandler } from "react-router";
-import { AppBar, AppCanvas, LeftNav, Styles } from "material-ui";
+import {RouteHandler} from "react-router";
+import {AppBar, AppCanvas, LeftNav, Styles} from "material-ui";
 
 import State from "../State.js";
 import initialState from "../InitialStateWithFakeData.js";
@@ -22,7 +22,7 @@ class Master extends React.Component {
 
     getState() {
         const initialAppState = new State(initialState(), this.update.bind(this));
-        return { appState: initialAppState };
+        return {appState: initialAppState};
     }
 
     getStyles() {
@@ -51,23 +51,23 @@ class Master extends React.Component {
     render() {
         const style = this.getStyles();
         const menuItems = [
-            { route: "home", text: "Home" },
-            { route: "demo", text: "Start demo" }
+            {route: "home", text: "Home"},
+            {route: "demo", text: "Start demo"}
         ];
         const selectedIndex = this._getSelectedIndex.bind(this)(menuItems);
         return (
             <AppCanvas>
                 <AppBar
-                    onLeftIconButtonTouchTap={ this._onLeftIconButtonTouchTap.bind(this) }
-                    style={ style.appBar }
+                    onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap.bind(this)}
+                    style={style.appBar}
                     title="KPI Tree"
-                    zDepth={ 0 } />
+                    zDepth={0} />
                 <LeftNav
-                    docked={ false }
-                    menuItems={ menuItems }
-                    onChange={ this._onLeftNavChange.bind(this) }
+                    docked={false}
+                    menuItems={menuItems}
+                    onChange={this._onLeftNavChange.bind(this)}
                     ref="leftNav"
-                    selectedIndex={ selectedIndex } />
+                    selectedIndex={selectedIndex} />
                 <RouteHandler {...this.state} />
             </AppCanvas>
         );

@@ -1,13 +1,13 @@
 import React from "react";
 
-import Tree from "../Tree/Tree.react.js";
+import TreeContainer from "../Tree/TreeContainer.react.js";
 import PeriodPicker from "../PeriodPicker/PeriodPicker.react.js";
 import PeriodPickerActions from "../PeriodPicker/PeriodPicker.actions.js";
 
 // for props validation
 import State from "../../State.js";
 
-import { Styles } from "material-ui";
+import {Styles} from "material-ui";
 
 class Demo extends React.Component {
 
@@ -30,12 +30,12 @@ class Demo extends React.Component {
         const periodPickerState = appState.getIn(["periodPicker"]);
 
         return (
-            <div style={ styles.demo }>
+            <div style={styles.demo}>
                 <PeriodPicker
-                    actions={ periodPickerActions }
+                    actions={periodPickerActions}
                     ref="PeriodPicker"
-                    state={ periodPickerState } />
-                <Tree appState={ appState }/>
+                    state={periodPickerState} />
+                <TreeContainer appState={appState}/>
             </div>
         );
     }

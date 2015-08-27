@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FlatButton, FontIcon } from "material-ui";
+import {FlatButton, FontIcon} from "material-ui";
 
 class TreeNodeBody extends React.Component {
 
@@ -52,37 +52,37 @@ class TreeNodeBody extends React.Component {
         const actualLabel = "Actual";
         const targetLabel = "Target";
         return (
-            <div ref="NodeBodyTarget" style={ styles.nodeBody }>
-                <div style={ styles.nodeBodyRow }>
-                    <div style={ styles.nodeBodyLabel }>
-                        <span> { targetLabel } </span>
+            <div ref="NodeBodyTarget" style={styles.nodeBody}>
+                <div style={styles.nodeBodyRow}>
+                    <div style={styles.nodeBodyLabel}>
+                        <span> {targetLabel} </span>
                     </div>
-                    <div style={ styles.nodeBodyValue }>
-                        <span> { this.props.targetValue } </span>
+                    <div style={styles.nodeBodyValue}>
+                        <span> {this.props.targetValue} </span>
                     </div>
                 </div>
-                <div style={ styles.nodeBodyRow }>
-                    <div style={ styles.nodeBodyLabel }>
-                        <span> { actualLabel } </span>
+                <div style={styles.nodeBodyRow}>
+                    <div style={styles.nodeBodyLabel}>
+                        <span> {actualLabel} </span>
                     </div>
-                    <div style={ styles.nodeBodyValue }>
-                        <span> { this.props.actualValue } </span>
+                    <div style={styles.nodeBodyValue}>
+                        <span> {this.props.actualValue} </span>
                     </div>
-                    <FlatButton style={ styles.button } >
+                    <FlatButton style={styles.button} >
                         <FontIcon
                             className="material-icons"
-                            style={ styles.icon }> trending_up
+                            style={styles.icon}> trending_up
                         </FontIcon>
                     </FlatButton>
                 </div>
-                <div style={ styles.nodeBodyRow }>
-                    <div style={ styles.nodeBodyLabel }>
-                        <span> { delta } </span>
+                <div style={styles.nodeBodyRow}>
+                    <div style={styles.nodeBodyLabel}>
+                        <span> {delta} </span>
                     </div>
-                    <div style={ styles.nodeBodyValueDev }>
-                        <span> { this.props.deltaValue } </span>
+                    <div style={styles.nodeBodyValueDev}>
+                        <span> {this.props.deltaValue} </span>
                     </div>
-                    <div style={ styles.nodeBodyFlag } />
+                    <div style={styles.nodeBodyFlag} />
                 </div>
             </div>
         );

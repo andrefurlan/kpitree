@@ -33,12 +33,12 @@ class TreeNodeHeader extends React.Component {
         return (
             <div className="NodeHeader" style={styles.root}>
                 <div className="NodeHeader-name" style={styles.name}>
-                    <span> { this.props.kpiName } </span>
+                    <span> {this.props.kpiName} </span>
                 </div>
                 <div className="NodeHeader-button" style={styles.button}>
                     <TreeNodeDrillBtn
-                        actions={ this.props.actions }
-                        kpiId={ this.props.kpiId } />
+                        actions={this.props.actions}
+                        kpiId={this.props.kpiId} />
                 </div>
             </div>
         );

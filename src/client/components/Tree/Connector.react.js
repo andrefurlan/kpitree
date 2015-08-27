@@ -32,12 +32,12 @@ class Connector extends React.Component {
         const parentConStyle = this.props.parentConStyle.merge(styles.connectorParent).toJS();
         const rowConStyle = this.props.rowConStyle.merge(styles.connectorRow).toJS();
         return (
-            <div key={ this.props.key } style={ connectorStyle }>
-                <div style={ parentConStyle } />
-                <div style={ rowConStyle }>
+            <div key={this.props.key} style={connectorStyle}>
+                <div style={parentConStyle} />
+                <div style={rowConStyle}>
                     {this.props.children.map((c) => {
                         const childrenConStyle = c.get("style").merge(styles.connectorChildren).toJS();
-                        return (<div key={ c.get("key") } style={ childrenConStyle } />);
+                        return (<div key={c.get("key")} style={childrenConStyle} />);
                     })}
                 </div>
             </div>

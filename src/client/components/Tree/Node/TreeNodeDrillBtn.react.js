@@ -3,7 +3,7 @@ import React from "react";
 // for props validation
 import NodeActions from "./TreeNode.actions.js";
 
-import { FlatButton, FontIcon } from "material-ui";
+import {FlatButton, FontIcon} from "material-ui";
 
 export default class TreeNodeDrillBtn extends React.Component {
     handleClick() {
@@ -27,11 +27,11 @@ export default class TreeNodeDrillBtn extends React.Component {
         const styles = this.getStyles();
         return (
             <FlatButton
-                onClick={ this.handleClick.bind(this) }
-                style={ styles.button }>
+                onClick={this.handleClick.bind(this)}
+                style={styles.button}>
                 <FontIcon
                     className="material-icons"
-                    style={ styles.icon }> chevron_right
+                    style={styles.icon}> chevron_right
                 </FontIcon>
             </FlatButton>
         );

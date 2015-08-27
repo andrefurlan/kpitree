@@ -1,5 +1,5 @@
 import React from "react";
-import { RaisedButton, Styles } from "material-ui";
+import {RaisedButton, Styles} from "material-ui";
 
 class Home extends React.Component {
 

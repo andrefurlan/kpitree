@@ -3,7 +3,7 @@ import {RouteHandler} from "react-router";
 import {AppBar, AppCanvas, LeftNav, Styles} from "material-ui";
 
 import State from "../State.js";
-import initialState from "../InitialStateWithFakeData.js";
+import initialState from "../InitialStateWithFakeMiningData.js";
 
 import '../UglyTheme.css';
 

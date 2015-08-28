@@ -1,0 +1,11 @@
+TODO:
+
+1. Remove arrow if there are no children to drill
+2. Insert direction and unit somewhere
+3. Add some visualization clue on which node is drilled
+4. Add more fake data on mining dataset. Direction, unit, and dataset
+5. Add trend feature
+6. Add bar chart if user hover over trend icon
+7. Show full kpi name if user hover over it and it is hidden
+***************
+8. Plan data import...how to do it??

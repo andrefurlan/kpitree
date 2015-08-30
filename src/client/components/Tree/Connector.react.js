@@ -11,17 +11,17 @@ class Connector extends React.Component {
                 display: "flex"
             },
             "connectorParent": {
-                borderTop: "solid 1px #d9d9d9",
+                borderTop: "solid 1px #999999",
                 position: "relative",
                 height: 1
             },
             "connectorChildren": {
-                borderBottom: "solid 1px #d9d9d9",
+                borderBottom: "solid 1px #999999",
                 height: 1,
                 position: "relative"
             },
             "connectorRow": {
-                borderLeft: "solid 1px #d9d9d9"
+                borderLeft: "solid 1px #999999"
             }
         };
     }
@@ -32,7 +32,7 @@ class Connector extends React.Component {
         const parentConStyle = this.props.parentConStyle.merge(styles.connectorParent).toJS();
         const rowConStyle = this.props.rowConStyle.merge(styles.connectorRow).toJS();
         return (
-            <div key={this.props.key} style={connectorStyle}>
+            <div style={connectorStyle}>
                 <div style={parentConStyle} />
                 <div style={rowConStyle}>
                     {this.props.children.map((c) => {
@@ -48,7 +48,6 @@ class Connector extends React.Component {
 Connector.propTypes = {
     children: React.PropTypes.instanceOf(immutable.List).isRequired,
     connectorStyle: React.PropTypes.instanceOf(immutable.Map).isRequired,
-    key: React.PropTypes.string.isRequired,
     parentConStyle: React.PropTypes.instanceOf(immutable.Map).isRequired,
     rowConStyle: React.PropTypes.instanceOf(immutable.Map).isRequired
 };

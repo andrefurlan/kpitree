@@ -55,7 +55,7 @@ class KpiTree extends React.Component {
                         <Connector
                             children={con.get("children")}
                             connectorStyle={con.get("style")}
-                            key={con.get("kpiId")}
+                            key={con.get("key")}
                             parentConStyle={con.get("parent")}
                             rowConStyle={con.get("row")} />
                     );

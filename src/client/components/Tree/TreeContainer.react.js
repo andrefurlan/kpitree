@@ -28,7 +28,7 @@ class TreeContainer extends React.Component {
         return (
             <div ref="KPITreeContainer" style={styles.KPITreeContainer} >
                 <div style={styles.scrollContainer}>
-                   <Tree appState={appState}/>
+                    <Tree appState={appState}/>
                 </div>
             </div>
         );

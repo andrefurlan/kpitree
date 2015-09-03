@@ -2,6 +2,9 @@
 export default function() {
     return {
         tree: [],
+        kpiDetails: {
+            toggle: false
+        },
         periodPicker: {
             month: "05",  // this is not necessary, eventually it should be only the index
             year: "2005",

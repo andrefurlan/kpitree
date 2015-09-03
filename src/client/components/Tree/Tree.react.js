@@ -30,6 +30,7 @@ class KpiTree extends React.Component {
         const nodeActions = new NodeActions(appState);
 
         const styles = this.getStyles();
+        // TODO: fix this height and width
         styles.KPITree.height = (positions.get("bottom") - positions.get("top")) + MINBOTTOM + MINTOP;
         styles.KPITree.width = (positions.get("right") + MINRIGHT);
         // TODO: refactor this urgently!

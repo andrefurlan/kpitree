@@ -9,7 +9,7 @@ export default class NodeActions {
     // Invariant: Deployed nodes are ordered
     drillNode(kpiId) {
         const state = this._appState;
-        const treeCursor = state.cursor(['tree']);
+        const treeCursor = state.cursor(["tree"]);
 
         treeCursor(treeState => {
             return getNewTreeState(kpiId, treeState, state);

@@ -37,7 +37,8 @@ class TreeNodeBody extends React.Component {
             "button": {
                 minHeight: "100%",
                 minWidth: "18%",
-                lineHeight: 0
+                lineHeight: 0,
+                textAlign: "center"
             },
             "icon": {
                 fontSize: 18,
@@ -68,12 +69,12 @@ class TreeNodeBody extends React.Component {
                     <div style={styles.nodeBodyValue}>
                         <span> {this.props.actualValue} </span>
                     </div>
-                    <FlatButton style={styles.button} >
+                    <div style={styles.button} >
                         <FontIcon
                             className="material-icons"
                             style={styles.icon}> trending_up
                         </FontIcon>
-                    </FlatButton>
+                    </div>
                 </div>
                 <div style={styles.nodeBodyRow}>
                     <div style={styles.nodeBodyLabel}>

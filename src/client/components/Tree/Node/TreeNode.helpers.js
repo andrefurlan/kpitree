@@ -1,4 +1,6 @@
-
+export function hasChildren(data) {
+    return !!data.get("children").size;
+}
 
 export function getKpiName(data) {
     return data.get("name");

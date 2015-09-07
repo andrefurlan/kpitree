@@ -20,7 +20,7 @@ export function getKPIData(kpiId, appState, hasValues) {
     }
 }
 
-export function getRootKPI(appState) {
+export function getRootKpiId(appState) {
     const state = appState.get();
     return state.getIn(["data", "rootKPI"]);
 }

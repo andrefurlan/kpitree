@@ -4,7 +4,21 @@ import Tree from "./Tree.react.js";
 // for props validation
 import State from "../../State.js";
 
+import {
+    updateTreeContainerDimension
+} from "./Tree.helpers.js";
+
+import {
+    getBounds
+} from "../../utils/DOMUtils.js";
+
 class TreeContainer extends React.Component {
+
+    componentDidMount() {
+        const element = this.refs.KPITreeContainer.getDOMNode();
+        const bounds = getBounds(element);
+        updateTreeContainerDimension(this.props.appState, bounds);
+    }
 
     getStyles() {
         return {

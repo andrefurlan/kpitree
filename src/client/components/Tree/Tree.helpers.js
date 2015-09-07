@@ -1,19 +1,56 @@
-import {Map, List} from "immutable";
+import {
+    fromJS,
+    List,
+    Map
+} from "immutable";
 
-import {MINTOP, MINLEFT, NODEHEIGHT, NODEWIDTH,
-    NODEHSPACING, NODEVSPACING} from "./Tree.constants.js";
-import {getKPIChildren, getRootKPI} from "../../DataHelpers.js";
+import {
+    MINTOP,
+    MINLEFT,
+    NODEHEIGHT,
+    NODEWIDTH,
+    NODEHSPACING,
+    NODEVSPACING
+} from "./Tree.constants.js";
+
+import {
+    getKPIChildren,
+    getKPIData,
+    getRootKpiId
+} from "../../DataHelpers.js";
 
 
-export function getElementsPositions(appState) {
-    // get the list of all drill down nodes
-    const treeState = appState.getIn(["tree"]);
+    /*
+     * Return: immutable.List
+     * Calculates all the node related metadata from the specific kpiId
+     * It will return immutable Maps with the format:
+     * {
+     *      position: {
+     *          bottom: (Number),
+     *          left: (Number),
+     *          right: (Number),
+     *          top: (Number)
+     *      },
+     *      data: {
+     *          immutable map with data from the specific kpi as in the global state
+     *      }
+     * }
+     */
+
+export function getNodeMetadata(appState) {
+
+    // get the list of drilled kpi IDs
+    const treeState = appState.getIn(["tree", "drilledKpis"]);
+
+
+    const rootKpiId = getRootKpiId(appState);
+    const rootPosition = getRootPosition(appState);
 
     // initialize with the root
     let nodePositions = List([
         Map({
-            "kpiId": getRootKPI(appState),
-            "style": getInitialPosition()
+            "kpiId": getRootKpiId(appState),
+            "style": getRootPosition(appState)
         })
     ]);
 
@@ -64,6 +101,7 @@ export function getElementsPositions(appState) {
         right: right
     });
 
+
     function computeNodePosition(kpiId, index, numSiblings, parentPosition) {
         const left = parentPosition.get("left") + NODEWIDTH + NODEHSPACING;
         const height = ((numSiblings * NODEHEIGHT) + ((numSiblings - 1) * NODEVSPACING));
@@ -97,6 +135,26 @@ export function getElementsPositions(appState) {
 
 }
 
+    /*
+     * Return all the node related metadata from the specific kpiId
+     * It will return an immutable Map with the format:
+     * {
+     *      position: {
+     *          bottom: (Number),
+     *          left: (Number),
+     *          right: (Number),
+     *          top: (Number)
+     *      },
+     *      state: {
+     *          immutable map with data from the specific kpi as in the global state
+     *      }
+     * }
+     */
+
+export function getConnectorMetadata(appState) {
+    return getNodeMetadata(appState);
+}
+
 export function getNewTreeState(kpiId, treeState, appState) {
     let newTreeState = List();
     // base case, nothing in state, just push root id
@@ -119,7 +177,16 @@ export function getNewTreeState(kpiId, treeState, appState) {
     return newTreeState;
 }
 
-export function getInitialPosition() {
+export function getRootPosition(appState) {
+    const dimension = appState.getIn(["tree", "treeContainerDimension"]);
+
     // TODO: calculate this correctly
-    return Map({left: MINLEFT, top: 200});
+    return Map({left: MINLEFT + dimension.get("left"), top: dimension.get("height") / 2 - NODEHEIGHT / 2});
+}
+
+export function updateTreeContainerDimension(appState, dimension) {
+    const dimensionCursor = appState.cursor(["tree", "treeContainerDimension"]);
+    dimensionCursor(state => {
+        return fromJS(dimension || {});
+    });
 }

@@ -6,10 +6,21 @@ import State from "../../State.js";
 import Connector from "./Connector.react.js";
 import TreeNode from "./Node/TreeNode.react.js";
 import NodeActions from "./Node/TreeNode.actions.js";
-import {MINBOTTOM, MINTOP, MINRIGHT} from "./Tree.constants.js";
 
-import {getElementsPositions} from "./Tree.helpers.js";
-import {getKPIData} from "../../DataHelpers.js";
+import {
+    MINBOTTOM,
+    MINRIGHT,
+    MINTOP
+} from "./Tree.constants.js";
+
+import {
+    getNodeMetadata,
+    getConnectorMetadata
+} from "./Tree.helpers.js";
+
+import {
+    getKPIData
+} from "../../DataHelpers.js";
 
 class KpiTree extends React.Component {
 
@@ -26,17 +37,18 @@ class KpiTree extends React.Component {
     render() {
         const appState = this.props.appState;
         // the tree state is just a array of deployed kpis
-        const positions = getElementsPositions(appState);
+        const nodesMetadata = getNodeMetadata(appState);
+        const connectorsMetadata = getConnectorMetadata(appState);
         const nodeActions = new NodeActions(appState);
 
         const styles = this.getStyles();
         // TODO: fix this height and width
-        styles.KPITree.height = (positions.get("bottom") - positions.get("top")) + MINBOTTOM + MINTOP;
-        styles.KPITree.width = (positions.get("right") + MINRIGHT);
+        styles.KPITree.height = (nodesMetadata.get("bottom") - nodesMetadata.get("top")) + MINBOTTOM + MINTOP;
+        styles.KPITree.width = (nodesMetadata.get("right") + MINRIGHT);
         // TODO: refactor this urgently!
         return (
             <div ref="KPITree" style={styles.KPITree}>
-                {positions.get("node").map((node) => {
+                {nodesMetadata.get("node").map((node) => {
                     const kpiId = node.get("kpiId");
                     const position = node.get("style");
                     const kpiData = getKPIData(kpiId, appState, true);
@@ -51,7 +63,7 @@ class KpiTree extends React.Component {
                     );
                 })}
 
-                {positions.get("connector").map((con) => {
+                {connectorsMetadata.get("connector").map((con) => {
                     return (
                         <Connector
                             children={con.get("children")}

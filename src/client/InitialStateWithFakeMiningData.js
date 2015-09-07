@@ -1,7 +1,10 @@
 
 export default function() {
     return {
-        tree: [],
+        tree: {
+            drilledKpis: [],
+            treeContainerDimension: {}
+        },
         kpiDetails: {
             toggle: false
         },

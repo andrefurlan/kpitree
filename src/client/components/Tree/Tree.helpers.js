@@ -5,6 +5,10 @@ import {
 } from "immutable";
 
 import {
+    getBounds
+} from "../../utils/DOMUtils.js";
+
+import {
     MINTOP,
     MINLEFT,
     NODEHEIGHT,
@@ -179,9 +183,12 @@ export function getNewTreeState(kpiId, treeState, appState) {
 
 export function getRootPosition(appState) {
     const dimension = appState.getIn(["tree", "treeContainerDimension"]);
+    // const element = React.refs.KPITreeContainer.getDOMNode();
+    // const bounds = getBounds(element);
 
     // TODO: calculate this correctly
     return Map({left: MINLEFT + dimension.get("left"), top: dimension.get("height") / 2 - NODEHEIGHT / 2});
+    // return Map({left: MINLEFT + bounds.left, top: bounds.height / 2 - NODEHEIGHT / 2});
 }
 
 export function updateTreeContainerDimension(appState, dimension) {
